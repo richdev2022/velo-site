@@ -5,6 +5,7 @@ import { PageHero, Section } from "@/components/velo/page-parts";
 import { Reveal } from "@/components/velo/primitives";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal" },
   title: "Legal",
   description: "Velo legal documents — privacy policy, terms of service, cookie policy and account deletion.",
 };

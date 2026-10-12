@@ -22,6 +22,7 @@ import { SupportForm } from "@/components/velo/SupportForm";
 import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/support" },
   title: "Support",
   description:
     "Get instant support through multiple channels — live chat, phone, email and our AI assistant. We're here 24/7 to help you succeed.",
@@ -145,17 +146,17 @@ export default function SupportPage() {
       </Section>
 
       {/* AI assistant */}
-      <Section className="band">
+      <Section className="bg-navy-950 text-white">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
-            <Eyebrow>Velo Assistant</Eyebrow>
+            <Eyebrow dark>Velo Assistant</Eyebrow>
             <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight sm:text-4xl">
               Meet your{" "}
-              <span className="bg-gradient-to-r from-velo-500 to-mint-500 bg-clip-text text-transparent dark:from-velo-300 dark:to-mint-400">
+              <span className="bg-gradient-to-r from-velo-300 to-mint-400 bg-clip-text text-transparent">
                 AI-powered assistant
               </span>
             </h2>
-            <p className="mt-4 max-w-xl text-[15px] leading-[1.85] text-slate-600 dark:text-white/60">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.85] text-white/60">
               Our AI assistant helps with common questions, account issues and transaction support
               24/7 — balances, transfer status, card freezes and bill payments, resolved in
               seconds. Complex cases escalate to a human specialist with full context, so you
@@ -163,15 +164,15 @@ export default function SupportPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-2.5">
               {["Balance & statements", "Transfer status", "Card controls", "Bill payments", "Disputes"].map((t) => (
-                <span key={t} className="rounded-full border border-slate-200/90 bg-white/80 px-4 py-2 text-[12.5px] font-medium text-slate-600 dark:border-white/12 dark:bg-white/6 dark:text-white/70">
+                <span key={t} className="rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[12.5px] font-medium text-white/70">
                   {t}
                 </span>
               ))}
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <div className="mx-auto max-w-md rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-none">
-              <div className="flex items-center gap-3 border-b border-slate-200/80 pb-4 dark:border-white/10">
+            <div className="mx-auto max-w-md rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-velo-500 to-velo-600 text-white">
                   <Bot className="h-5 w-5" />
                 </div>
@@ -183,14 +184,14 @@ export default function SupportPage() {
                 </div>
               </div>
               <div className="mt-4 flex flex-col gap-3">
-                <div className="max-w-[85%] rounded-2xl rounded-tl-md bg-slate-100/90 px-4 py-3 text-[13px] leading-relaxed text-slate-700 dark:bg-white/8 dark:text-white/80">
+                <div className="max-w-[85%] rounded-2xl rounded-tl-md bg-white/8 px-4 py-3 text-[13px] leading-relaxed text-white/80">
                   Hi! I can help with account balance, transaction history, transfer status and
                   much more. How can I assist you today?
                 </div>
                 <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-velo-500 px-4 py-3 text-[13px] text-white">
                   Where is my transfer to GTBank?
                 </div>
-                <div className="max-w-[85%] rounded-2xl rounded-tl-md bg-slate-100/90 px-4 py-3 text-[13px] leading-relaxed text-slate-700 dark:bg-white/8 dark:text-white/80">
+                <div className="max-w-[85%] rounded-2xl rounded-tl-md bg-white/8 px-4 py-3 text-[13px] leading-relaxed text-white/80">
                   Your ₦45,000 transfer to GTBank was delivered successfully at 14:32 — receipt
                   #VR-88213. Anything else I can help with? 🎉
                 </div>

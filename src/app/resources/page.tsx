@@ -7,6 +7,7 @@ import { Reveal, Eyebrow, Stagger, StaggerItem } from "@/components/velo/primiti
 import { POSTS } from "@/data/blog";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/resources" },
   title: "Resources",
   description:
     "Empower yourself with knowledge, insights and tools to make smarter financial decisions — guides, blog posts and expert advice on personal and business finance.",

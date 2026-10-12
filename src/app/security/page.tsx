@@ -17,6 +17,7 @@ import { Reveal, Stagger, StaggerItem, Eyebrow } from "@/components/velo/primiti
 import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/security" },
   title: "Security",
   description:
     "Advanced protection and transparent practices to keep your money and data safe — multi-layer security, compliance and 24/7 monitoring at Velo.",
@@ -202,13 +203,13 @@ export default function SecurityPage() {
       </Section>
 
       {/* report an issue */}
-      <Section className="band">
+      <Section className="bg-navy-950 text-white">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Security Issues?</Eyebrow>
+          <Eyebrow dark>Security Issues?</Eyebrow>
           <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight sm:text-4xl">
             Noticed something suspicious?
           </h2>
-          <p className="mt-4 text-[15.5px] leading-relaxed text-slate-600 dark:text-white/60">
+          <p className="mt-4 text-[15.5px] leading-relaxed text-white/60">
             If you notice any suspicious activity on your account or suspect a security breach,
             contact us immediately. Quick action protects your account and funds.
           </p>
@@ -238,14 +239,14 @@ export default function SecurityPage() {
             },
           ].map((c, i) => (
             <Reveal key={c.title} delay={i * 0.08}>
-              <div className="flex h-full flex-col rounded-3xl border border-slate-200/80 bg-white/70 p-7 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-none">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-500/12 text-velo-600 dark:bg-velo-500/15 dark:text-velo-300">
+              <div className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-7">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-500/15 text-velo-300">
                   <c.icon className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-slate-900 dark:text-white">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[17px] font-bold">
                   {c.title}
                 </h3>
-                <p className="mt-2 flex-1 text-[13.5px] leading-relaxed text-slate-500 dark:text-white/55">{c.text}</p>
+                <p className="mt-2 flex-1 text-[13.5px] leading-relaxed text-white/55">{c.text}</p>
                 <Link
                   href={c.href}
                   className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-velo-500 px-5 py-2.5 text-[13px] font-semibold text-white transition-all hover:bg-velo-400"

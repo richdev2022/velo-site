@@ -5,6 +5,7 @@ import { Reveal } from "@/components/velo/primitives";
 import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/delete-account" },
   title: "Delete Account",
   description:
     "How to delete your Velo account and what happens to your data — timelines, retained records and alternatives to deletion.",

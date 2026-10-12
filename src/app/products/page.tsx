@@ -4,6 +4,7 @@ import { ProductsCatalog } from "@/components/velo/ProductsCatalog";
 import { CtaBand } from "@/components/velo/page-parts";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/products" },
   title: "Products & Services",
   description:
     "Explore every Velo product: digital accounts, cross-border payments, cards, savings, business banking, diaspora services, multi-currency virtual accounts, wallets, international payouts and gift cards.",

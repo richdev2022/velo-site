@@ -16,6 +16,7 @@ import { PageHero, Section, CtaBand } from "@/components/velo/page-parts";
 import { Reveal, Eyebrow, Stagger, StaggerItem } from "@/components/velo/primitives";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/careers" },
   title: "Careers",
   description:
     "Help us build the future of African banking. Join a team of passionate innovators creating financial solutions that matter.",

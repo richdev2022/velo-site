@@ -17,6 +17,7 @@ import { Reveal, Eyebrow } from "@/components/velo/primitives";
 import { RAILS } from "@/data/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/how-it-works" },
   title: "How Velo Works",
   description:
     "From download to your first international payment in minutes — how Velo works, step by step.",

@@ -15,6 +15,7 @@ import { PageHero, Section, CtaBand } from "@/components/velo/page-parts";
 import { Reveal, Eyebrow } from "@/components/velo/primitives";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/download" },
   title: "Download the App",
   description:
     "Download Velo for iOS, Android or use the web app — open a free account in minutes and start borderless banking today.",

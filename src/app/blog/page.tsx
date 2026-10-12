@@ -7,6 +7,7 @@ import { Reveal, Eyebrow } from "@/components/velo/primitives";
 import { POSTS } from "@/data/blog";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog",
   description:
     "Insights, tips and expert advice on personal finance, cross-border payments, business banking and building wealth — from the Velo team.",

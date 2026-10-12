@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LegalShell } from "@/components/velo/LegalShell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal/privacy" },
   title: "Privacy Policy",
   description:
     "How Velo collects, uses, stores and protects your personal information when you use our banking services, mobile application and website.",

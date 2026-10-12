@@ -6,6 +6,8 @@ import { ArrowLeft, ArrowUpRight, ChevronRight, Clock, Share2 } from "lucide-rea
 import { POSTS, getPost } from "@/data/blog";
 import { Reveal } from "@/components/velo/primitives";
 import { CtaBand } from "@/components/velo/page-parts";
+import { JsonLd } from "@/components/velo/JsonLd";
+import { SITE } from "@/data/site";
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -18,8 +20,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) return { title: "Article not found" };
-  return { title: post.title, description: post.excerpt };
+  if (!post) return { title: "Article not found", robots: { index: false } };
+
+  const url = `${SITE.website}/blog/${post.slug}`;
+  const image = post.image ?? "/brand/og-image.jpg";
+  const publishedTime = new Date(post.date).toISOString();
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url,
+      siteName: "Velo Finance",
+      publishedTime,
+      authors: [post.author],
+      tags: [post.category, "Velo Finance", "cross-border payments"],
+      images: [{ url: image, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [image],
+    },
+  };
 }
 
 export default async function BlogPostPage({
@@ -31,36 +59,56 @@ export default async function BlogPostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: `${SITE.website}${post.image ?? "/brand/og-image.jpg"}`,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    author: { "@type": "Organization", name: post.author, url: SITE.website },
+    publisher: {
+      "@type": "Organization",
+      name: "Velo Finance",
+      logo: { "@type": "ImageObject", url: `${SITE.website}/brand/velo-logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE.website}/blog/${post.slug}` },
+    articleSection: post.category,
+    inLanguage: "en",
+  };
+
   const others = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <>
+      <JsonLd data={articleLd} />
       {/* hero */}
-      <section className="band relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-adapt opacity-40" aria-hidden="true" />
+      <section className="relative overflow-hidden bg-navy-950 text-white">
+        <div className="absolute inset-0 bg-grid-dark opacity-40" aria-hidden="true" />
         <div
-          className="absolute -top-40 left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-velo-500/8 blur-[130px] dark:bg-velo-500/16"
+          className="absolute -top-40 left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-velo-500/16 blur-[130px]"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-4xl px-4 pb-14 pt-12 sm:px-6 sm:pb-16">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[12.5px] text-slate-500 dark:text-white/45">
-            <Link href="/" className="hover:text-slate-800 transition-colors dark:hover:text-white/80">Home</Link>
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[12.5px] text-white/45">
+            <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/blog" className="hover:text-slate-800 transition-colors dark:hover:text-white/80">Blog</Link>
+            <Link href="/blog" className="hover:text-white/80 transition-colors">Blog</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-velo-600 dark:text-velo-300">{post.category}</span>
+            <span className="text-velo-300">{post.category}</span>
           </nav>
 
           <h1 className="mt-8 font-[family-name:var(--font-poppins)] text-3xl font-extrabold leading-[1.15] tracking-tight sm:text-[44px]">
             {post.title}
           </h1>
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-slate-500 dark:text-white/55">
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-white/55">
             <span className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-velo-500 to-velo-600 text-[13px] font-bold text-white">
                 {post.author.charAt(0)}
               </span>
               <span>
-                <span className="block font-semibold text-slate-800 dark:text-white/85">{post.author}</span>
+                <span className="block font-semibold text-white/85">{post.author}</span>
                 {post.authorRole && <span className="block text-[11.5px]">{post.authorRole}</span>}
               </span>
             </span>

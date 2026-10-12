@@ -13,6 +13,8 @@ import { CATEGORY_META, PRODUCTS, getProduct } from "@/data/products";
 import { ProductIcon } from "@/components/velo/ProductIcon";
 import { Reveal } from "@/components/velo/primitives";
 import { CtaBand, Section } from "@/components/velo/page-parts";
+import { JsonLd } from "@/components/velo/JsonLd";
+import { SITE } from "@/data/site";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -25,10 +27,29 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
-  if (!product) return { title: "Product not found" };
+  if (!product)
+    return { title: "Product not found", robots: { index: false } };
+
+  const image = product.image ?? "/brand/og-image.jpg";
+
   return {
     title: product.name,
     description: product.description,
+    alternates: { canonical: `/products/${product.slug}` },
+    openGraph: {
+      type: "website",
+      title: `${product.name} | Velo Finance`,
+      description: product.description,
+      url: `${SITE.website}/products/${product.slug}`,
+      siteName: "Velo Finance",
+      images: [{ url: image, alt: product.imageAlt ?? product.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | Velo Finance`,
+      description: product.description,
+      images: [image],
+    },
   };
 }
 
@@ -53,27 +74,51 @@ export default async function ProductDetailPage({
       : [];
   const relatedAll = [...related, ...relatedFill];
 
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: product.name,
+    serviceType: CATEGORY_META[product.category].label,
+    description: product.description,
+    url: `${SITE.website}/products/${product.slug}`,
+    image: `${SITE.website}${product.image ?? "/brand/og-image.jpg"}`,
+    provider: { "@id": `${SITE.website}/#organization` },
+    areaServed: "Worldwide",
+    brand: { "@type": "Brand", name: "Velo Finance" },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.website}/` },
+      { "@type": "ListItem", position: 2, name: "Products & Services", item: `${SITE.website}/products` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `${SITE.website}/products/${product.slug}` },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={[serviceLd, breadcrumbLd]} />
       {/* hero */}
-      <section className="band relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-adapt opacity-50" aria-hidden="true" />
+      <section className="relative overflow-hidden bg-navy-950 text-white">
+        <div className="absolute inset-0 bg-grid-dark opacity-50" aria-hidden="true" />
         <div
-          className="absolute -top-40 left-1/2 h-[480px] w-[820px] -translate-x-1/2 rounded-full bg-velo-500/8 blur-[130px] dark:bg-velo-500/16"
+          className="absolute -top-40 left-1/2 h-[480px] w-[820px] -translate-x-1/2 rounded-full bg-velo-500/16 blur-[130px]"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-12 sm:px-6 sm:pb-16 sm:pt-14">
           {/* breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[12.5px] text-slate-500 dark:text-white/45">
-            <Link href="/" className="transition-colors hover:text-slate-800 dark:hover:text-white/80">Home</Link>
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[12.5px] text-white/45">
+            <Link href="/" className="transition-colors hover:text-white/80">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/products" className="transition-colors hover:text-slate-800 dark:hover:text-white/80">
+            <Link href="/products" className="transition-colors hover:text-white/80">
               Products &amp; Services
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-velo-600 dark:text-velo-300">{category.short}</span>
+            <span className="text-velo-300">{category.short}</span>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-slate-800 dark:text-white/80">{product.name}</span>
+            <span className="text-white/80">{product.name}</span>
           </nav>
 
           <div className="mt-9 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
@@ -82,11 +127,11 @@ export default async function ProductDetailPage({
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 text-white shadow-glow-blue">
                   <ProductIcon name={product.icon} className="h-6.5 w-6.5" />
                 </div>
-                <span className="glass-float rounded-full px-3.5 py-1.5 text-[11.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-300">
+                <span className="rounded-full border border-white/12 bg-white/6 px-3.5 py-1.5 text-[11.5px] font-bold uppercase tracking-wider text-velo-300">
                   {category.short}
                 </span>
                 {product.badge && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-mint-400/15 px-3.5 py-1.5 text-[11.5px] font-bold uppercase tracking-wider text-mint-600 dark:text-mint-400">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-mint-400/15 px-3.5 py-1.5 text-[11.5px] font-bold uppercase tracking-wider text-mint-400">
                     <Sparkles className="h-3.5 w-3.5" /> {product.badge}
                   </span>
                 )}
@@ -94,8 +139,8 @@ export default async function ProductDetailPage({
               <h1 className="mt-6 font-[family-name:var(--font-poppins)] text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
                 {product.name}
               </h1>
-              <p className="mt-3 text-[17px] font-medium text-velo-600 dark:text-velo-200">{product.tagline}</p>
-              <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed text-slate-600 dark:text-white/60">
+              <p className="mt-3 text-[17px] font-medium text-velo-200">{product.tagline}</p>
+              <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed text-white/60">
                 {product.description}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -108,7 +153,7 @@ export default async function ProductDetailPage({
                 </Link>
                 <Link
                   href="/support"
-                  className="glass-float inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-slate-800 transition-all hover:bg-white dark:text-white dark:hover:bg-white/12"
+                  className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12"
                 >
                   Talk to us
                 </Link>
@@ -117,17 +162,17 @@ export default async function ProductDetailPage({
 
             {/* highlights panel */}
             <Reveal delay={0.15}>
-              <div className="rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur sm:p-7 dark:border-white/10 dark:bg-white/6 dark:shadow-none">
-                <p className="text-[12px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-300">
+              <div className="glass-dark rounded-3xl border border-white/10 p-6 sm:p-7">
+                <p className="text-[12px] font-bold uppercase tracking-wider text-velo-300">
                   Key benefits
                 </p>
                 <ul className="mt-4 flex flex-col gap-3">
                   {product.highlights.map((h) => (
                     <li key={h} className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint-400/20">
-                        <Check className="h-3 w-3 text-mint-500 dark:text-mint-400" />
+                        <Check className="h-3 w-3 text-mint-400" />
                       </span>
-                      <span className="text-[13.5px] leading-relaxed text-slate-700 dark:text-white/80">{h}</span>
+                      <span className="text-[13.5px] leading-relaxed text-white/80">{h}</span>
                     </li>
                   ))}
                 </ul>
@@ -221,9 +266,9 @@ export default async function ProductDetailPage({
 
       {/* how it works */}
       {product.howItWorks && (
-        <Section className="band">
+        <Section className="bg-navy-950 text-white">
           <Reveal className="max-w-2xl">
-            <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-300">
+            <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-300">
               How it works
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -233,14 +278,14 @@ export default async function ProductDetailPage({
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {product.howItWorks.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.1}>
-                <div className="relative h-full rounded-3xl border border-slate-200/80 bg-white/70 p-7 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:shadow-none">
+                <div className="relative h-full rounded-3xl border border-white/10 bg-white/5 p-7">
                   <span className="absolute -top-5 left-7 flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 font-[family-name:var(--font-poppins)] text-[16px] font-extrabold text-white shadow-glow-blue">
                     {i + 1}
                   </span>
-                  <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-slate-900 dark:text-white">
+                  <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[17px] font-bold">
                     {s.title}
                   </h3>
-                  <p className="mt-2.5 text-[13.5px] leading-relaxed text-slate-600 dark:text-white/60">{s.description}</p>
+                  <p className="mt-2.5 text-[13.5px] leading-relaxed text-white/60">{s.description}</p>
                 </div>
               </Reveal>
             ))}

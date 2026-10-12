@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LegalShell } from "@/components/velo/LegalShell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal/cookies" },
   title: "Cookie Policy",
   description:
     "How Velo uses cookies and similar technologies to keep our platform secure and improve your experience.",

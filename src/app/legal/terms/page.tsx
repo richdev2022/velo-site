@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LegalShell } from "@/components/velo/LegalShell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal/terms" },
   title: "Terms & Conditions",
   description:
     "The terms governing your use of Velo's banking services, mobile application and website.",
