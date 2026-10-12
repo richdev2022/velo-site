@@ -1,0 +1,57 @@
+import {
+  BarChart3,
+  Bitcoin,
+  Building2,
+  Coins,
+  CreditCard,
+  FileText,
+  Gift,
+  Globe,
+  Globe2,
+  Heart,
+  Home,
+  Landmark,
+  PieChart,
+  Plane,
+  Receipt,
+  Send,
+  ShieldCheck,
+  Smartphone,
+  Split,
+  TrendingUp,
+  UserPlus,
+  Users,
+  WalletCards,
+  type LucideIcon,
+} from "lucide-react";
+
+const MAP: Record<string, LucideIcon> = {
+  Smartphone,
+  Globe,
+  Send,
+  Bitcoin,
+  Receipt,
+  CreditCard,
+  WalletCards,
+  Users,
+  Split,
+  TrendingUp,
+  PieChart,
+  Building2,
+  FileText,
+  BarChart3,
+  Landmark,
+  Plane,
+  Heart,
+  Home,
+  ShieldCheck,
+  UserPlus,
+  Gift,
+  Globe2,
+  Coins,
+};
+
+export function ProductIcon({ name, className }: { name: string; className?: string }) {
+  const Ico = MAP[name] ?? Smartphone;
+  return <Ico className={className} aria-hidden="true" />;
+}
