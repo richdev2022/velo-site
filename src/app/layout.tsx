@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins, Rubik } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Navbar } from "@/components/velo/Navbar";
 import { Footer } from "@/components/velo/Footer";
@@ -166,14 +167,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${rubik.variable} antialiased bg-white text-foreground font-body`}
+        className={`${poppins.variable} ${rubik.variable} antialiased bg-white text-foreground font-body dark:bg-navy-950`}
       >
-        <JsonLd data={[organizationLd, websiteLd]} />
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        {/* class-based theming: follows OS preference by default, toggle overrides + persists */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <JsonLd data={[organizationLd, websiteLd]} />
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
