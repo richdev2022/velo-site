@@ -153,7 +153,7 @@ export default async function ProductDetailPage({
                 </Link>
                 <Link
                   href="/support"
-                  className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12"
+                  className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12 dark:hover:bg-white/10"
                 >
                   Talk to us
                 </Link>
@@ -183,13 +183,13 @@ export default async function ProductDetailPage({
       </section>
 
       {/* overview */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-start">
           <Reveal>
-            <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600">
+            <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
               Overview
             </p>
-            <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
               Why it matters
             </h2>
             <p className="mt-6 text-[16px] leading-[1.85] text-slate-600">{product.overview}</p>
@@ -206,8 +206,8 @@ export default async function ProductDetailPage({
             </Reveal>
           ) : (
             <Reveal delay={0.12}>
-              <div className="rounded-3xl border border-velo-100 bg-gradient-to-br from-velo-50 via-white to-mint-400/10 p-8">
-                <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600">
+              <div className="rounded-3xl border border-velo-100 bg-gradient-to-br from-velo-50 via-white to-mint-400/10 p-8 dark:from-velo-500/15 dark:border-velo-400/30 dark:via-white/5">
+                <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
                   Included in every account
                 </p>
                 <ul className="mt-5 flex flex-col gap-3.5">
@@ -217,9 +217,9 @@ export default async function ProductDetailPage({
                     "24/7 in-app support",
                     "Bank-grade encryption & fraud monitoring",
                   ].map((t) => (
-                    <li key={t} className="flex items-center gap-3 text-[14.5px] font-medium text-navy-900">
+                    <li key={t} className="flex items-center gap-3 text-[14.5px] font-medium text-navy-900 dark:text-white">
                       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-velo-500/12">
-                        <Check className="h-3.5 w-3.5 text-velo-600" />
+                        <Check className="h-3.5 w-3.5 text-velo-600 dark:text-velo-400" />
                       </span>
                       {t}
                     </li>
@@ -240,21 +240,21 @@ export default async function ProductDetailPage({
       {/* features */}
       <Section className="bg-slate-50">
         <Reveal className="max-w-2xl">
-          <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600">
+          <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
             Features
           </p>
-          <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Everything {product.name} does
           </h2>
         </Reveal>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {product.features.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.06}>
-              <div className="group h-full rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.28)]">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-velo-50 font-[family-name:var(--font-poppins)] text-[13px] font-extrabold text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white">
+              <div className="group h-full rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.28)] dark:hover:border-velo-400/40 dark:bg-white/5">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-velo-50 font-[family-name:var(--font-poppins)] text-[13px] font-extrabold text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400 dark:bg-velo-500/15">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold leading-snug text-navy-900">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold leading-snug text-navy-900 dark:text-white">
                   {f.title}
                 </h3>
                 <p className="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">{f.description}</p>
@@ -295,13 +295,13 @@ export default async function ProductDetailPage({
 
       {/* faqs */}
       {product.faqs && product.faqs.length > 0 && (
-        <Section className="bg-white">
+        <Section className="bg-white dark:bg-navy-950">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal>
-              <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600">
+              <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
                 FAQ
               </p>
-              <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+              <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
                 Common questions
               </h2>
               <p className="mt-4 text-[14.5px] leading-relaxed text-slate-500">
@@ -309,7 +309,7 @@ export default async function ProductDetailPage({
               </p>
               <Link
                 href="/support"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-[13.5px] font-semibold text-navy-900 transition-all hover:border-velo-300 hover:text-velo-600"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-[13.5px] font-semibold text-navy-900 transition-all hover:border-velo-300 hover:text-velo-600 dark:text-white dark:hover:text-velo-400"
               >
                 <CircleHelp className="h-4 w-4" /> Visit Help Center
               </Link>
@@ -317,10 +317,10 @@ export default async function ProductDetailPage({
             <div className="flex flex-col gap-3">
               {product.faqs.map((f, i) => (
                 <Reveal key={f.q} delay={i * 0.06}>
-                  <details className="group rounded-2xl border border-slate-100 bg-slate-50/60 px-6 py-5 transition-colors open:bg-white open:border-velo-100 open:shadow-[0_16px_40px_-18px_rgba(33,150,243,0.25)]">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-semibold text-navy-900 [&::-webkit-details-marker]:hidden">
+                  <details className="group rounded-2xl border border-slate-100 bg-slate-50/60 px-6 py-5 transition-colors open:bg-white open:border-velo-100 open:shadow-[0_16px_40px_-18px_rgba(33,150,243,0.25)] dark:open:border-velo-400/30 dark:open:bg-white/5">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-semibold text-navy-900 [&::-webkit-details-marker]:hidden dark:text-white">
                       {f.q}
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-velo-50 text-velo-600 transition-transform group-open:rotate-45">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-velo-50 text-velo-600 transition-transform group-open:rotate-45 dark:text-velo-400 dark:bg-velo-500/15">
                         +
                       </span>
                     </summary>
@@ -337,16 +337,16 @@ export default async function ProductDetailPage({
       <Section className="bg-slate-50">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600">
+            <p className="text-[12.5px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
               Keep exploring
             </p>
-            <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl">
+            <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl dark:text-white">
               You may also like
             </h2>
           </div>
           <Link
             href="/products"
-            className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-velo-600 hover:text-velo-500"
+            className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-velo-600 hover:text-velo-500 dark:text-velo-400"
           >
             View all products <ArrowUpRight className="h-4 w-4" />
           </Link>
@@ -356,18 +356,18 @@ export default async function ProductDetailPage({
             <Reveal key={p.slug} delay={i * 0.07}>
               <Link
                 href={`/products/${p.slug}`}
-                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.28)]"
+                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.28)] dark:hover:border-velo-400/40 dark:bg-white/5"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 text-white">
                   <ProductIcon name={p.icon} className="h-5 w-5" />
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900 dark:text-white">
                   {p.name}
                 </h3>
                 <p className="mt-2 flex-1 text-[13px] leading-relaxed text-slate-500">
                   {p.description}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600">
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600 dark:text-velo-400">
                   See details
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>

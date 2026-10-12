@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
-      <Suspense fallback={<div className="min-h-[60vh] bg-white" />}>
+      <Suspense fallback={<div className="min-h-[60vh] bg-white dark:bg-navy-950" />}>
         <ProductsCatalog />
       </Suspense>
       <CtaBand />

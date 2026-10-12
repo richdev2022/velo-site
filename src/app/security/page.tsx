@@ -83,7 +83,7 @@ export default function SecurityPage() {
           </Link>
           <a
             href="#compliance"
-            className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12"
+            className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12 dark:hover:bg-white/10"
           >
             <FileCheck2 className="h-4.5 w-4.5 text-velo-300" />
             View Compliance Practices
@@ -92,10 +92,10 @@ export default function SecurityPage() {
       </PageHero>
 
       {/* multi-layer security */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Multi-Layer Security</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Protected at <span className="text-gradient-blue">every interaction</span>
           </h2>
           <p className="mt-4 text-[15.5px] leading-relaxed text-slate-500">
@@ -106,11 +106,11 @@ export default function SecurityPage() {
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {LAYERS.map((l) => (
             <StaggerItem key={l.title}>
-              <div className="h-full rounded-3xl border border-slate-100 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)]">
+              <div className="h-full rounded-3xl border border-slate-100 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)] dark:hover:border-velo-400/40 dark:bg-white/5">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 text-white shadow-glow-blue">
                   <l.icon className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+                <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                   {l.title}
                 </h3>
                 <p className="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">{l.text}</p>
@@ -125,7 +125,7 @@ export default function SecurityPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <Eyebrow>Compliance & Regulations</Eyebrow>
-            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
               Adhering to the highest{" "}
               <span className="text-gradient-blue">international standards</span>
             </h2>
@@ -148,17 +148,17 @@ export default function SecurityPage() {
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-[0_20px_60px_-30px_rgba(12,41,71,0.3)]">
-              <p className="text-[12px] font-bold uppercase tracking-wider text-velo-600">
+            <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-[0_20px_60px_-30px_rgba(12,41,71,0.3)] dark:bg-white/5">
+              <p className="text-[12px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
                 Our compliance checklist
               </p>
               <ul className="mt-5 flex flex-col gap-4">
                 {COMPLIANCE.map((c) => (
                   <li key={c} className="flex items-center gap-3.5">
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-velo-500/12">
-                      <ShieldCheck className="h-4 w-4 text-velo-600" />
+                      <ShieldCheck className="h-4 w-4 text-velo-600 dark:text-velo-400" />
                     </span>
-                    <span className="text-[14.5px] font-medium text-navy-900">{c}</span>
+                    <span className="text-[14.5px] font-medium text-navy-900 dark:text-white">{c}</span>
                   </li>
                 ))}
               </ul>
@@ -168,10 +168,10 @@ export default function SecurityPage() {
       </Section>
 
       {/* personal security tips */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Keep Yourself Protected</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Your data is safe with us —{" "}
             <span className="text-gradient-blue">and with you</span>
           </h2>
@@ -192,7 +192,7 @@ export default function SecurityPage() {
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-mint-400/15 font-[family-name:var(--font-poppins)] text-[13px] font-extrabold text-mint-500">
                   ✓
                 </span>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[15.5px] font-bold text-navy-900">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[15.5px] font-bold text-navy-900 dark:text-white">
                   {s.t}
                 </h3>
                 <p className="mt-2 text-[13px] leading-relaxed text-slate-500">{s.d}</p>

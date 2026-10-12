@@ -80,10 +80,10 @@ export default function CareersPage() {
       </PageHero>
 
       {/* why work here */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Why Work at Velo</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             We&apos;re building something{" "}
             <span className="text-gradient-blue">extraordinary</span>
           </h2>
@@ -94,11 +94,11 @@ export default function CareersPage() {
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PERKS.map((p) => (
             <StaggerItem key={p.title}>
-              <div className="h-full rounded-3xl border border-slate-100 bg-slate-50/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:bg-white hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)]">
+              <div className="h-full rounded-3xl border border-slate-100 bg-slate-50/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:bg-white hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)] dark:hover:border-velo-400/40 dark:hover:bg-white/10">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 text-white shadow-glow-blue">
                   <p.icon className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+                <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                   {p.title}
                 </h3>
                 <p className="mt-2.5 text-[13.5px] leading-relaxed text-slate-500">{p.text}</p>
@@ -112,17 +112,17 @@ export default function CareersPage() {
       <Section className="bg-slate-50">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Current Openings</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Open <span className="text-gradient-blue">positions</span>
           </h2>
         </Reveal>
 
         <Reveal className="mt-10">
-          <div className="mx-auto max-w-2xl rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-velo-50 text-velo-600">
+          <div className="mx-auto max-w-2xl rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center dark:bg-white/5">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 dark:text-velo-400 dark:bg-velo-500/15">
               <Briefcase className="h-7 w-7" />
             </div>
-            <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-xl font-extrabold text-navy-900">
+            <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-xl font-extrabold text-navy-900 dark:text-white">
               No openings available at the moment
             </h3>
             <p className="mx-auto mt-3 max-w-md text-[14px] leading-relaxed text-slate-500">

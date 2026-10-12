@@ -214,3 +214,44 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
+
+/*
+ * Dark-mode palette flip.
+ * Tailwind's default palette (slate) is emitted as real CSS custom
+ * properties, so redefining them under `.dark` flips EVERY slate utility
+ * (bg / border / text / placeholder / gradient stops) site-wide without
+ * touching component markup. Values map the slate scale onto the navy
+ * dark surface stack (body = navy-950 #081c31).
+ * Brand colors (velo/navy/mint/gold) are declared via `@theme inline`,
+ * so their values are compiled as literals — those are handled with
+ * explicit `dark:` utilities in the components instead.
+ */
+.dark {
+  /* shadcn semantic tokens */
+  --background: #081c31;
+  --foreground: #f5f9ff;
+  --card: #0a2340;
+  --card-foreground: #f5f9ff;
+  --popover: #0a2340;
+  --popover-foreground: #f5f9ff;
+  --secondary: #10304f;
+  --secondary-foreground: #f5f9ff;
+  --muted: #10304f;
+  --muted-foreground: #8ba3c0;
+  --accent: #10304f;
+  --accent-foreground: #79c4f9;
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.14);
+
+  /* slate scale -> navy dark equivalents */
+  --color-slate-50: #0a2340;
+  --color-slate-100: #10304f;
+  --color-slate-200: rgb(255 255 255 / 0.14);
+  --color-slate-300: rgb(255 255 255 / 0.28);
+  --color-slate-400: rgb(255 255 255 / 0.5);
+  --color-slate-500: rgb(255 255 255 / 0.62);
+  --color-slate-600: rgb(255 255 255 / 0.75);
+  --color-slate-700: rgb(255 255 255 / 0.88);
+  --color-slate-800: rgb(255 255 255 / 0.94);
+  --color-slate-900: #f5f9ff;
+}

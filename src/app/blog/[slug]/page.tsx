@@ -121,7 +121,7 @@ export default async function BlogPostPage({
       </section>
 
       {/* body */}
-      <section className="bg-white py-14 sm:py-20">
+      <section className="bg-white py-14 sm:py-20 dark:bg-navy-950">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           {post.image && (
             <Reveal className="mb-10 overflow-hidden rounded-3xl border border-slate-100 shadow-[0_24px_60px_-30px_rgba(12,41,71,0.3)]">
@@ -143,7 +143,7 @@ export default async function BlogPostPage({
                   return (
                     <h2
                       key={i}
-                      className="mt-4 font-[family-name:var(--font-poppins)] text-[24px] font-extrabold tracking-tight text-navy-900 sm:text-[28px]"
+                      className="mt-4 font-[family-name:var(--font-poppins)] text-[24px] font-extrabold tracking-tight text-navy-900 sm:text-[28px] dark:text-white"
                     >
                       {block.text}
                     </h2>
@@ -153,7 +153,7 @@ export default async function BlogPostPage({
                   return (
                     <h3
                       key={i}
-                      className="mt-2 font-[family-name:var(--font-poppins)] text-[19px] font-bold text-navy-900"
+                      className="mt-2 font-[family-name:var(--font-poppins)] text-[19px] font-bold text-navy-900 dark:text-white"
                     >
                       {block.text}
                     </h3>
@@ -184,7 +184,7 @@ export default async function BlogPostPage({
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-8">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-velo-600 hover:text-velo-500"
+              className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-velo-600 hover:text-velo-500 dark:text-velo-400"
             >
               <ArrowLeft className="h-4 w-4" /> Back to all articles
             </Link>
@@ -199,7 +199,7 @@ export default async function BlogPostPage({
       <section className="bg-slate-50 py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl">
+            <h2 className="font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl dark:text-white">
               Keep reading
             </h2>
           </Reveal>
@@ -208,16 +208,16 @@ export default async function BlogPostPage({
               <Reveal key={p.slug} delay={i * 0.07}>
                 <Link
                   href={`/blog/${p.slug}`}
-                  className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)]"
+                  className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)] dark:hover:border-velo-400/40 dark:bg-white/5"
                 >
-                  <span className="w-fit rounded-full bg-velo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-velo-700">
+                  <span className="w-fit rounded-full bg-velo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-velo-700 dark:text-velo-300 dark:bg-velo-500/15">
                     {p.category}
                   </span>
-                  <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold leading-snug text-navy-900 group-hover:text-velo-600 transition-colors">
+                  <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold leading-snug text-navy-900 group-hover:text-velo-600 transition-colors dark:text-white dark:group-hover:text-velo-400">
                     {p.title}
                   </h3>
                   <p className="mt-2 flex-1 text-[13px] leading-relaxed text-slate-500">{p.excerpt}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600 dark:text-velo-400">
                     Read article <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </Link>

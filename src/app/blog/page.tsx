@@ -25,7 +25,7 @@ export default function BlogPage() {
         description="Deep dives on cross-border payments, savings strategy, business finance and security — written for the African experience and global lives."
       />
 
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         {/* featured */}
         <Reveal>
           <Link
@@ -54,10 +54,10 @@ export default function BlogPage() {
               </span>
             </div>
             <div className="flex flex-col justify-center p-8 sm:p-10">
-              <span className="text-[12px] font-bold uppercase tracking-wider text-velo-600">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-velo-600 dark:text-velo-400">
                 {featured.category}
               </span>
-              <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-2xl font-extrabold leading-snug tracking-tight text-navy-900 transition-colors group-hover:text-velo-600 sm:text-3xl">
+              <h2 className="mt-3 font-[family-name:var(--font-poppins)] text-2xl font-extrabold leading-snug tracking-tight text-navy-900 transition-colors group-hover:text-velo-600 sm:text-3xl dark:text-white dark:group-hover:text-velo-400">
                 {featured.title}
               </h2>
               <p className="mt-4 text-[14.5px] leading-relaxed text-slate-500">{featured.excerpt}</p>
@@ -78,15 +78,15 @@ export default function BlogPage() {
             <Reveal key={post.slug} delay={(i % 3) * 0.06}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-velo-200 hover:bg-white hover:shadow-[0_28px_56px_-24px_rgba(33,150,243,0.32)]"
+                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-velo-200 hover:bg-white hover:shadow-[0_28px_56px_-24px_rgba(33,150,243,0.32)] dark:hover:border-velo-400/40 dark:hover:bg-white/10"
               >
                 <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-velo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-velo-700">
+                  <span className="rounded-full bg-velo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-velo-700 dark:text-velo-300 dark:bg-velo-500/15">
                     {post.category}
                   </span>
                   <span className="text-[11.5px] text-slate-400">{post.readTime}</span>
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[18px] font-bold leading-snug text-navy-900 transition-colors group-hover:text-velo-600">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[18px] font-bold leading-snug text-navy-900 transition-colors group-hover:text-velo-600 dark:text-white dark:group-hover:text-velo-400">
                   {post.title}
                 </h3>
                 <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-slate-500">
@@ -94,10 +94,10 @@ export default function BlogPage() {
                 </p>
                 <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
                   <div>
-                    <p className="text-[12.5px] font-semibold text-navy-900">{post.author}</p>
+                    <p className="text-[12.5px] font-semibold text-navy-900 dark:text-white">{post.author}</p>
                     <p className="text-[11.5px] text-slate-400">{post.date}</p>
                   </div>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-velo-600 transition-all group-hover:border-velo-400 group-hover:bg-velo-500 group-hover:text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-velo-600 transition-all group-hover:border-velo-400 group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400">
                     <ArrowUpRight className="h-4.5 w-4.5" />
                   </span>
                 </div>

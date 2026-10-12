@@ -62,7 +62,7 @@ export default function DownloadPage() {
             <a
               key={p.store}
               href="#"
-              className="group flex items-center gap-4 rounded-3xl border border-white/12 bg-white/6 p-5 backdrop-blur transition-all hover:-translate-y-1 hover:border-velo-400/50 hover:bg-white/10"
+              className="group flex items-center gap-4 rounded-3xl border border-white/12 bg-white/6 p-5 backdrop-blur transition-all hover:-translate-y-1 hover:border-velo-400/50 hover:bg-white/10 dark:hover:bg-white/10"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-velo-500/15 text-velo-300 transition-colors group-hover:bg-velo-500 group-hover:text-white">
                 <p.icon className="h-6 w-6" />
@@ -79,11 +79,11 @@ export default function DownloadPage() {
         </div>
       </PageHero>
 
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <Eyebrow>Get Started in Minutes</Eyebrow>
-            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
               Three minutes to a{" "}
               <span className="text-gradient-blue">global bank account</span>
             </h2>
@@ -95,29 +95,29 @@ export default function DownloadPage() {
             <div className="mt-8 flex flex-col gap-4">
               {REASONS.map((r) => (
                 <div key={r.text} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50/60 p-4.5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-velo-50 text-velo-600">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-velo-50 text-velo-600 dark:text-velo-400 dark:bg-velo-500/15">
                     <r.icon className="h-5 w-5" />
                   </span>
-                  <p className="text-[14px] font-medium text-navy-900">{r.text}</p>
+                  <p className="text-[14px] font-medium text-navy-900 dark:text-white">{r.text}</p>
                 </div>
               ))}
             </div>
           </Reveal>
 
           <Reveal delay={0.12}>
-            <div className="mx-auto flex max-w-md flex-col items-center gap-6 rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-50 to-white p-8 shadow-[0_30px_70px_-30px_rgba(12,41,71,0.3)]">
+            <div className="mx-auto flex max-w-md flex-col items-center gap-6 rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-50 to-white p-8 shadow-[0_30px_70px_-30px_rgba(12,41,71,0.3)] dark:to-navy-900">
               <div className="flex h-40 w-40 items-center justify-center rounded-3xl bg-navy-950 p-3">
                 <QrCode className="h-full w-full text-white" strokeWidth={1.2} />
               </div>
               <div className="text-center">
-                <p className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+                <p className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                   Scan to download
                 </p>
                 <p className="mt-1.5 text-[13px] text-slate-500">
                   Point your camera at the code — the right store opens automatically.
                 </p>
               </div>
-              <div className="flex w-full items-center justify-center gap-2 rounded-full bg-velo-50 px-5 py-3 text-[13px] font-semibold text-velo-700">
+              <div className="flex w-full items-center justify-center gap-2 rounded-full bg-velo-50 px-5 py-3 text-[13px] font-semibold text-velo-700 dark:text-velo-300 dark:bg-velo-500/15">
                 <Smartphone className="h-4.5 w-4.5" /> Free on iOS &amp; Android
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function DownloadPage() {
       <Section className="bg-slate-50">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Prefer Web?</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Everything works in the <span className="text-gradient-blue">browser too</span>
           </h2>
           <p className="mt-4 text-[15.5px] leading-relaxed text-slate-500">
@@ -139,7 +139,7 @@ export default function DownloadPage() {
         <Reveal className="mt-10 text-center" delay={0.1}>
           <Link
             href="/how-it-works"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-7 py-3.5 text-[14px] font-semibold text-navy-900 transition-all hover:border-velo-300 hover:text-velo-600"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-7 py-3.5 text-[14px] font-semibold text-navy-900 transition-all hover:border-velo-300 hover:text-velo-600 dark:text-white dark:hover:text-velo-400"
           >
             <Check className="h-4 w-4 text-mint-500" /> See how the web app works
           </Link>

@@ -102,7 +102,7 @@ export default function SupportPage() {
             <a
               key={c.title}
               href={c.href}
-              className="group rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur transition-all hover:-translate-y-1 hover:border-velo-400/50 hover:bg-white/10"
+              className="group rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur transition-all hover:-translate-y-1 hover:border-velo-400/50 hover:bg-white/10 dark:hover:bg-white/10"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-500/15 text-velo-300 transition-colors group-hover:bg-velo-500 group-hover:text-white">
                 <c.icon className="h-5.5 w-5.5" />
@@ -118,10 +118,10 @@ export default function SupportPage() {
       </PageHero>
 
       {/* help topics */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Help Center</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Browse by <span className="text-gradient-blue">topic</span>
           </h2>
           <p className="mt-4 text-[15.5px] leading-relaxed text-slate-500">
@@ -131,11 +131,11 @@ export default function SupportPage() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TOPICS.map((t, i) => (
             <Reveal key={t.title} delay={i * 0.05}>
-              <div className="group h-full rounded-3xl border border-slate-100 bg-slate-50/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:bg-white hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.22)]">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white">
+              <div className="group h-full rounded-3xl border border-slate-100 bg-slate-50/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:bg-white hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.22)] dark:hover:border-velo-400/40 dark:hover:bg-white/10">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400 dark:bg-velo-500/15">
                   <t.icon className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900 dark:text-white">
                   {t.title}
                 </h3>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-slate-500">{t.text}</p>
@@ -212,7 +212,7 @@ export default function SupportPage() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
             <Eyebrow>Contact Information</Eyebrow>
-            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
               Send us a message
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-slate-500">
@@ -226,23 +226,23 @@ export default function SupportPage() {
                 { icon: Globe, title: "Languages", text: "English, French, Arabic · Hausa, Yoruba, Igbo" },
                 { icon: Mail, title: "Email", text: SITE.email },
               ].map((c) => (
-                <div key={c.title} className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-velo-50 text-velo-600">
+                <div key={c.title} className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5 dark:bg-white/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-velo-50 text-velo-600 dark:text-velo-400 dark:bg-velo-500/15">
                     <c.icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-[14px] font-bold text-navy-900">{c.title}</p>
+                    <p className="text-[14px] font-bold text-navy-900 dark:text-white">{c.title}</p>
                     <p className="mt-0.5 text-[13px] text-slate-500">{c.text}</p>
                   </div>
                 </div>
               ))}
               <div className="rounded-2xl border border-gold-400/30 bg-gold-400/8 p-5">
-                <p className="flex items-center gap-2 text-[13.5px] font-bold text-navy-900">
+                <p className="flex items-center gap-2 text-[13.5px] font-bold text-navy-900 dark:text-white">
                   <ShieldAlert className="h-4.5 w-4.5 text-gold-500" /> Emergency Support
                 </p>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-slate-500">
                   Suspect fraud or account compromise? Call{" "}
-                  <a href={`tel:${SITE.phone}`} className="font-semibold text-velo-600">
+                  <a href={`tel:${SITE.phone}`} className="font-semibold text-velo-600 dark:text-velo-400">
                     {SITE.phoneDisplay}
                   </a>{" "}
                   immediately — the emergency line is answered 24/7.
@@ -257,11 +257,11 @@ export default function SupportPage() {
       </Section>
 
       {/* FAQ */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
               Frequently asked <span className="text-gradient-blue">questions</span>
             </h2>
             <p className="mt-4 text-[14.5px] leading-relaxed text-slate-500">
@@ -272,8 +272,8 @@ export default function SupportPage() {
           <div className="flex flex-col gap-3">
             {FAQS.map((f, i) => (
               <Reveal key={f.q} delay={i * 0.05}>
-                <details className="group rounded-2xl border border-slate-100 bg-slate-50/60 px-6 py-5 open:border-velo-100 open:bg-white open:shadow-[0_16px_40px_-18px_rgba(33,150,243,0.25)]">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-semibold text-navy-900 [&::-webkit-details-marker]:hidden">
+                <details className="group rounded-2xl border border-slate-100 bg-slate-50/60 px-6 py-5 open:border-velo-100 open:bg-white open:shadow-[0_16px_40px_-18px_rgba(33,150,243,0.25)] dark:open:border-velo-400/30 dark:open:bg-white/5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-semibold text-navy-900 [&::-webkit-details-marker]:hidden dark:text-white">
                     {f.q}
                     <ChevronDown className="h-5 w-5 shrink-0 text-velo-500 transition-transform group-open:rotate-180" />
                   </summary>

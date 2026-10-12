@@ -39,7 +39,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/products"
-            className="glass-dark inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12 sm:w-auto"
+            className="glass-dark inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-semibold text-white transition-all hover:bg-white/12 sm:w-auto dark:hover:bg-white/10"
           >
             Explore products
           </Link>

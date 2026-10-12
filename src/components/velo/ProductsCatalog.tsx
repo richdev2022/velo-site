@@ -74,7 +74,7 @@ export function ProductsCatalog() {
       </PageHero>
 
       {/* tabs */}
-      <div className="sticky top-[68px] z-30 border-b border-slate-100 bg-white/92 backdrop-blur-xl">
+      <div className="sticky top-[68px] z-30 border-b border-slate-100 bg-white/92 backdrop-blur-xl dark:bg-white/5">
         <div className="mx-auto max-w-7xl overflow-x-auto px-4 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex gap-2 py-3.5">
             {TABS.map((t) => {
@@ -88,7 +88,7 @@ export function ProductsCatalog() {
                   className={`relative shrink-0 rounded-full px-4.5 py-2.5 text-[13.5px] font-semibold transition-all ${
                     active
                       ? "bg-navy-900 text-white shadow-md"
-                      : "bg-slate-100/80 text-slate-500 hover:bg-slate-200/70 hover:text-navy-900"
+                      : "bg-slate-100/80 text-slate-500 hover:bg-slate-200/70 hover:text-navy-900 dark:hover:text-white"
                   }`}
                 >
                   {label}
@@ -115,7 +115,7 @@ export function ProductsCatalog() {
               transition={{ duration: 0.25 }}
               className="mb-10 max-w-2xl"
             >
-              <h2 className="font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl">
+              <h2 className="font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl dark:text-white">
                 {tab === "all" ? "Browse everything" : CATEGORY_META[tab].label}
               </h2>
               <p className="mt-2.5 text-[15px] leading-relaxed text-slate-500">
@@ -127,8 +127,8 @@ export function ProductsCatalog() {
           </AnimatePresence>
 
           {visible.length === 0 ? (
-            <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-14 text-center">
-              <p className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+            <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-14 text-center dark:bg-white/5">
+              <p className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                 No products match “{query}”
               </p>
               <p className="mt-2 text-[14px] text-slate-500">
@@ -155,7 +155,7 @@ export function ProductsCatalog() {
                   >
                     <Link
                       href={`/products/${p.slug}`}
-                      className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_2px_20px_-10px_rgba(12,41,71,0.14)] transition-all duration-300 hover:-translate-y-1.5 hover:border-velo-200 hover:shadow-[0_28px_56px_-22px_rgba(33,150,243,0.32)]"
+                      className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_2px_20px_-10px_rgba(12,41,71,0.14)] transition-all duration-300 hover:-translate-y-1.5 hover:border-velo-200 hover:shadow-[0_28px_56px_-22px_rgba(33,150,243,0.32)] dark:hover:border-velo-400/40 dark:bg-white/5"
                     >
                       <div className="flex items-start justify-between">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 text-white shadow-glow-blue transition-transform duration-300 group-hover:scale-110">
@@ -167,10 +167,10 @@ export function ProductsCatalog() {
                           </span>
                         )}
                       </div>
-                      <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-[17.5px] font-bold leading-snug text-navy-900">
+                      <h3 className="mt-5 font-[family-name:var(--font-poppins)] text-[17.5px] font-bold leading-snug text-navy-900 dark:text-white">
                         {p.name}
                       </h3>
-                      <p className="mt-1.5 text-[12.5px] font-medium text-velo-600">{p.tagline}</p>
+                      <p className="mt-1.5 text-[12.5px] font-medium text-velo-600 dark:text-velo-400">{p.tagline}</p>
                       <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-slate-500">
                         {p.description}
                       </p>
@@ -184,7 +184,7 @@ export function ProductsCatalog() {
                           </span>
                         ))}
                       </div>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-velo-600 transition-colors group-hover:text-velo-500">
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-velo-600 transition-colors group-hover:text-velo-500 dark:text-velo-400">
                         See details
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>

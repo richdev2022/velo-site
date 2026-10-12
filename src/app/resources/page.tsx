@@ -66,17 +66,17 @@ export default function ResourcesPage() {
       />
 
       {/* featured */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <Eyebrow>Latest from Velo</Eyebrow>
-            <h2 className="mt-4 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-4 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
               Featured articles
             </h2>
           </div>
           <Link
             href="/blog"
-            className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-velo-600 hover:text-velo-500"
+            className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-velo-600 hover:text-velo-500 dark:text-velo-400"
           >
             View all posts
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -88,7 +88,7 @@ export default function ResourcesPage() {
             <StaggerItem key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_2px_24px_-12px_rgba(12,41,71,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_56px_-24px_rgba(33,150,243,0.35)]"
+                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_2px_24px_-12px_rgba(12,41,71,0.18)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_56px_-24px_rgba(33,150,243,0.35)] dark:bg-white/5"
               >
                 {post.image ? (
                   <div className="relative h-44 overflow-hidden">
@@ -111,7 +111,7 @@ export default function ResourcesPage() {
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-[family-name:var(--font-poppins)] text-[17.5px] font-bold leading-snug text-navy-900 group-hover:text-velo-600 transition-colors">
+                  <h3 className="font-[family-name:var(--font-poppins)] text-[17.5px] font-bold leading-snug text-navy-900 group-hover:text-velo-600 transition-colors dark:text-white dark:group-hover:text-velo-400">
                     {post.title}
                   </h3>
                   <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-slate-500">
@@ -132,7 +132,7 @@ export default function ResourcesPage() {
       <Section className="bg-slate-50">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Learning Paths</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             Guides for every <span className="text-gradient-blue">money journey</span>
           </h2>
         </Reveal>
@@ -141,16 +141,16 @@ export default function ResourcesPage() {
             <Reveal key={g.title} delay={i * 0.05}>
               <Link
                 href={g.href}
-                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)]"
+                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)] dark:hover:border-velo-400/40 dark:bg-white/5"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400 dark:bg-velo-500/15">
                   <g.icon className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900 dark:text-white">
                   {g.title}
                 </h3>
                 <p className="mt-2 flex-1 text-[13.5px] leading-relaxed text-slate-500">{g.text}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600">
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600 dark:text-velo-400">
                   Read guide <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
               </Link>
@@ -160,10 +160,10 @@ export default function ResourcesPage() {
       </Section>
 
       {/* more posts */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal>
           <Eyebrow>Keep Reading</Eyebrow>
-          <h2 className="mt-4 font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl">
+          <h2 className="mt-4 font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl dark:text-white">
             More insights
           </h2>
         </Reveal>
@@ -172,25 +172,25 @@ export default function ResourcesPage() {
             <Reveal key={post.slug} delay={i * 0.05}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col gap-4 rounded-3xl border border-slate-100 bg-slate-50/50 p-6 transition-all duration-300 hover:border-velo-200 hover:bg-white hover:shadow-[0_20px_44px_-20px_rgba(33,150,243,0.25)] sm:flex-row sm:items-center sm:justify-between"
+                className="group flex flex-col gap-4 rounded-3xl border border-slate-100 bg-slate-50/50 p-6 transition-all duration-300 hover:border-velo-200 hover:bg-white hover:shadow-[0_20px_44px_-20px_rgba(33,150,243,0.25)] sm:flex-row sm:items-center sm:justify-between dark:hover:border-velo-400/40 dark:hover:bg-white/10"
               >
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="rounded-full bg-velo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-velo-700">
+                    <span className="rounded-full bg-velo-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-velo-700 dark:text-velo-300 dark:bg-velo-500/15">
                       {post.category}
                     </span>
                     <span className="text-[12px] text-slate-400">
                       {post.date} · {post.readTime}
                     </span>
                   </div>
-                  <h3 className="mt-2.5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 group-hover:text-velo-600 transition-colors">
+                  <h3 className="mt-2.5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 group-hover:text-velo-600 transition-colors dark:text-white dark:group-hover:text-velo-400">
                     {post.title}
                   </h3>
                   <p className="mt-1.5 max-w-3xl text-[13.5px] leading-relaxed text-slate-500">
                     {post.excerpt}
                   </p>
                 </div>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 text-velo-600 transition-all group-hover:border-velo-400 group-hover:bg-velo-500 group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 text-velo-600 transition-all group-hover:border-velo-400 group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400">
                   <ArrowUpRight className="h-5 w-5" />
                 </span>
               </Link>

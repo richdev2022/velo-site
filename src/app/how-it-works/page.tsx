@@ -73,7 +73,7 @@ export default function HowItWorksPage() {
         description="No branches. No paperwork. No waiting rooms. Here's the entire journey, step by step."
       />
 
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="relative">
           {/* connector line */}
           <div className="absolute left-[27px] top-4 hidden h-[calc(100%-2rem)] w-0.5 bg-gradient-to-b from-velo-200 via-velo-300 to-mint-400/50 lg:block" aria-hidden="true" />
@@ -84,10 +84,10 @@ export default function HowItWorksPage() {
                   <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 font-[family-name:var(--font-poppins)] text-lg font-extrabold text-white shadow-glow-blue">
                     {i + 1}
                   </div>
-                  <div className="flex-1 rounded-3xl border border-slate-100 bg-slate-50/50 p-6 transition-all hover:border-velo-200 hover:bg-white hover:shadow-[0_20px_44px_-20px_rgba(33,150,243,0.22)] sm:p-7">
+                  <div className="flex-1 rounded-3xl border border-slate-100 bg-slate-50/50 p-6 transition-all hover:border-velo-200 hover:bg-white hover:shadow-[0_20px_44px_-20px_rgba(33,150,243,0.22)] sm:p-7 dark:hover:border-velo-400/40 dark:hover:bg-white/10">
                     <div className="flex items-center gap-3">
-                      <s.icon className="h-5.5 w-5.5 text-velo-600" />
-                      <h3 className="font-[family-name:var(--font-poppins)] text-[18px] font-bold text-navy-900">
+                      <s.icon className="h-5.5 w-5.5 text-velo-600 dark:text-velo-400" />
+                      <h3 className="font-[family-name:var(--font-poppins)] text-[18px] font-bold text-navy-900 dark:text-white">
                         {s.title}
                       </h3>
                     </div>
@@ -116,7 +116,7 @@ export default function HowItWorksPage() {
       <Section className="bg-slate-50">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>What You Unlock</Eyebrow>
-          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
             The global finance suite, <span className="text-gradient-blue">day one</span>
           </h2>
           <p className="mt-4 text-[15.5px] leading-relaxed text-slate-500">
@@ -127,10 +127,10 @@ export default function HowItWorksPage() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {RAILS.map((r, i) => (
             <Reveal key={r.code} delay={i * 0.05}>
-              <div className="flex items-center gap-4 rounded-3xl border border-slate-100 bg-white p-5 transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_20px_44px_-20px_rgba(33,150,243,0.22)]">
+              <div className="flex items-center gap-4 rounded-3xl border border-slate-100 bg-white p-5 transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_20px_44px_-20px_rgba(33,150,243,0.22)] dark:hover:border-velo-400/40 dark:bg-white/5">
                 <span className="text-3xl">{r.flag}</span>
                 <div className="flex-1">
-                  <p className="font-[family-name:var(--font-poppins)] text-[15.5px] font-bold text-navy-900">
+                  <p className="font-[family-name:var(--font-poppins)] text-[15.5px] font-bold text-navy-900 dark:text-white">
                     {r.code} — {r.rail}
                   </p>
                   <p className="text-[12.5px] text-slate-500">{r.detail}</p>
@@ -145,16 +145,16 @@ export default function HowItWorksPage() {
             <Reveal key={f.title} delay={i * 0.06}>
               <Link
                 href={f.href}
-                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.28)]"
+                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.28)] dark:hover:border-velo-400/40 dark:bg-white/5"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-velo-500 to-velo-600 text-white">
                   <f.icon className="h-5.5 w-5.5" />
                 </div>
-                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-navy-900">
+                <h3 className="mt-4 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-navy-900 dark:text-white">
                   {f.title}
                 </h3>
                 <p className="mt-2 flex-1 text-[13px] text-slate-500">{f.text}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600">
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-velo-600 dark:text-velo-400">
                   Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>

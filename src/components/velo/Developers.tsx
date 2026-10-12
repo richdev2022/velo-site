@@ -162,7 +162,7 @@ export function Developers() {
                       className={`whitespace-nowrap rounded-lg px-3.5 py-1.5 text-[12px] font-semibold transition-colors ${
                         active === i
                           ? "bg-velo-500/20 text-velo-200"
-                          : "text-white/40 hover:bg-white/8 hover:text-white/70"
+                          : "text-white/40 hover:bg-white/8 hover:text-white/70 dark:hover:bg-white/10"
                       }`}
                     >
                       {t.label}
@@ -171,7 +171,7 @@ export function Developers() {
                 </div>
                 <button
                   onClick={copyCode}
-                  className="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/40 transition-colors hover:bg-white/10 hover:text-white"
+                  className="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/40 transition-colors hover:bg-white/10 hover:text-white dark:hover:bg-white/10"
                   aria-label="Copy code"
                 >
                   {copied ? <Check className="h-4 w-4 text-mint-400" /> : <Copy className="h-4 w-4" />}

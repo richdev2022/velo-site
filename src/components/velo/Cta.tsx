@@ -81,11 +81,11 @@ export function Cta({ video = false }: { video?: boolean }) {
                 </a>
               </Magnetic>
               <div className="flex w-full gap-3 sm:w-auto">
-                <button className="glass-dark inline-flex flex-1 items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[14px] font-semibold text-white transition-all hover:bg-white/12 sm:flex-none">
+                <button className="glass-dark inline-flex flex-1 items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[14px] font-semibold text-white transition-all hover:bg-white/12 sm:flex-none dark:hover:bg-white/10">
                   <Apple className="h-5 w-5" />
                   App Store
                 </button>
-                <button className="glass-dark inline-flex flex-1 items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[14px] font-semibold text-white transition-all hover:bg-white/12 sm:flex-none">
+                <button className="glass-dark inline-flex flex-1 items-center justify-center gap-2.5 rounded-full px-6 py-4 text-[14px] font-semibold text-white transition-all hover:bg-white/12 sm:flex-none dark:hover:bg-white/10">
                   <PlayCircle className="h-5 w-5" />
                   Google Play
                 </button>

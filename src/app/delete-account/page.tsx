@@ -44,11 +44,11 @@ export default function DeleteAccountPage() {
         description="We're sorry to see you go. Here's exactly how deletion works, what gets erased and what regulation requires us to keep."
       />
 
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <Reveal>
-              <h2 className="font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl">
+              <h2 className="font-[family-name:var(--font-poppins)] text-2xl font-extrabold tracking-tight text-navy-900 sm:text-3xl dark:text-white">
                 How to delete your account
               </h2>
               <div className="mt-8 flex flex-col gap-5">
@@ -58,7 +58,7 @@ export default function DeleteAccountPage() {
                       {i + 1}
                     </span>
                     <div>
-                      <h3 className="font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900">
+                      <h3 className="font-[family-name:var(--font-poppins)] text-[16.5px] font-bold text-navy-900 dark:text-white">
                         {s.title}
                       </h3>
                       <p className="mt-1.5 text-[14px] leading-relaxed text-slate-500">{s.text}</p>
@@ -70,7 +70,7 @@ export default function DeleteAccountPage() {
 
             <Reveal className="mt-10">
               <div className="rounded-3xl border border-gold-400/30 bg-gold-400/8 p-7">
-                <p className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-navy-900">
+                <p className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[16px] font-bold text-navy-900 dark:text-white">
                   <TriangleAlert className="h-5 w-5 text-gold-500" />
                   Before you go — consider these alternatives
                 </p>
@@ -93,8 +93,8 @@ export default function DeleteAccountPage() {
           <div className="flex flex-col gap-5">
             <Reveal delay={0.1}>
               <div className="rounded-3xl border border-slate-100 bg-slate-50/60 p-7">
-                <h3 className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
-                  <ShieldAlert className="h-5 w-5 text-velo-600" /> What gets deleted
+                <h3 className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
+                  <ShieldAlert className="h-5 w-5 text-velo-600 dark:text-velo-400" /> What gets deleted
                 </h3>
                 <ul className="mt-4 flex flex-col gap-2.5 text-[13.5px] leading-relaxed text-slate-500">
                   <li>• Your profile, preferences and app settings</li>
@@ -106,7 +106,7 @@ export default function DeleteAccountPage() {
             </Reveal>
             <Reveal delay={0.16}>
               <div className="rounded-3xl border border-slate-100 bg-slate-50/60 p-7">
-                <h3 className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+                <h3 className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                   <ShieldAlert className="h-5 w-5 text-gold-500" /> What we must retain
                 </h3>
                 <p className="mt-3 text-[13.5px] leading-relaxed text-slate-500">
@@ -118,22 +118,22 @@ export default function DeleteAccountPage() {
               </div>
             </Reveal>
             <Reveal delay={0.22}>
-              <div className="rounded-3xl border border-velo-100 bg-velo-50/60 p-7">
-                <h3 className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+              <div className="rounded-3xl border border-velo-100 bg-velo-50/60 p-7 dark:bg-velo-500/15 dark:border-velo-400/30">
+                <h3 className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                   Need help right now?
                 </h3>
                 <div className="mt-4 flex flex-col gap-3">
                   <a
                     href={`mailto:${SITE.email}?subject=Account%20Deletion%20Request`}
-                    className="inline-flex items-center gap-3 rounded-2xl border border-velo-100 bg-white px-5 py-4 text-[14px] font-semibold text-navy-900 transition-all hover:border-velo-300"
+                    className="inline-flex items-center gap-3 rounded-2xl border border-velo-100 bg-white px-5 py-4 text-[14px] font-semibold text-navy-900 transition-all hover:border-velo-300 dark:text-white dark:border-velo-400/30 dark:bg-white/5"
                   >
-                    <Mail className="h-5 w-5 text-velo-600" /> {SITE.email}
+                    <Mail className="h-5 w-5 text-velo-600 dark:text-velo-400" /> {SITE.email}
                   </a>
                   <a
                     href={`tel:${SITE.phone}`}
-                    className="inline-flex items-center gap-3 rounded-2xl border border-velo-100 bg-white px-5 py-4 text-[14px] font-semibold text-navy-900 transition-all hover:border-velo-300"
+                    className="inline-flex items-center gap-3 rounded-2xl border border-velo-100 bg-white px-5 py-4 text-[14px] font-semibold text-navy-900 transition-all hover:border-velo-300 dark:text-white dark:border-velo-400/30 dark:bg-white/5"
                   >
-                    <Phone className="h-5 w-5 text-velo-600" /> {SITE.phoneDisplay}
+                    <Phone className="h-5 w-5 text-velo-600 dark:text-velo-400" /> {SITE.phoneDisplay}
                   </a>
                 </div>
                 <p className="mt-4 text-[12.5px] leading-relaxed text-slate-500">

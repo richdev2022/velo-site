@@ -94,7 +94,7 @@ export default function AboutPage() {
       </PageHero>
 
       {/* mission & vision */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-3xl border border-velo-100/80 bg-gradient-to-br from-velo-50/70 via-card to-velo-50/40 p-8 sm:p-10 dark:border-velo-500/20 dark:from-velo-500/10 dark:via-card dark:to-mint-500/5">
@@ -168,7 +168,7 @@ export default function AboutPage() {
       </Section>
 
       {/* what sets us apart */}
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <Reveal className="max-w-2xl">
           <Eyebrow>What Sets Us Apart</Eyebrow>
           <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">

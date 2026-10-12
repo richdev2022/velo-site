@@ -46,21 +46,21 @@ export default function LegalPage() {
         highlight="in plain language."
         description="Everything governing your relationship with Velo — written to be read, not hidden."
       />
-      <Section className="bg-white">
+      <Section className="bg-white dark:bg-navy-950">
         <div className="grid gap-5 sm:grid-cols-2">
           {DOCS.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.06}>
               <Link
                 href={d.href}
-                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-7 transition-all hover:-translate-y-1 hover:border-velo-200 hover:bg-white hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)]"
+                className="group flex h-full flex-col rounded-3xl border border-slate-100 bg-slate-50/50 p-7 transition-all hover:-translate-y-1 hover:border-velo-200 hover:bg-white hover:shadow-[0_24px_50px_-20px_rgba(33,150,243,0.25)] dark:hover:border-velo-400/40 dark:hover:bg-white/10"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-colors group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400 dark:bg-velo-500/15">
                     <d.icon className="h-6 w-6" />
                   </div>
                   <ArrowUpRight className="h-5 w-5 text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-velo-500" />
                 </div>
-                <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-[18px] font-bold text-navy-900">
+                <h2 className="mt-5 font-[family-name:var(--font-poppins)] text-[18px] font-bold text-navy-900 dark:text-white">
                   {d.title}
                 </h2>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-slate-500">{d.text}</p>

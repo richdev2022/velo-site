@@ -190,7 +190,7 @@ function CurrencyField({
         <div className="relative shrink-0">
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-white/15"
+            className="flex items-center gap-1.5 rounded-xl bg-white/10 px-3 py-2.5 text-[13.5px] font-semibold text-white transition-colors hover:bg-white/15 dark:hover:bg-white/10"
             aria-expanded={open}
             aria-haspopup="listbox"
           >
@@ -214,7 +214,7 @@ function CurrencyField({
                       setOpen(false);
                     }}
                     className={`flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-[13px] font-medium transition-colors ${
-                      x.code === code ? "bg-velo-500/25 text-white" : "text-white/70 hover:bg-white/10 hover:text-white"
+                      x.code === code ? "bg-velo-500/25 text-white" : "text-white/70 hover:bg-white/10 hover:text-white dark:hover:bg-white/10"
                     }`}
                   >
                     <span className="text-[15px]">{x.flag}</span>

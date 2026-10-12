@@ -46,12 +46,12 @@ export function LegalShell({
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-20">
+      <section className="bg-white py-14 sm:py-20 dark:bg-navy-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="flex flex-col gap-12">
             {sections.map((s) => (
               <div key={s.title}>
-                <h2 className="font-[family-name:var(--font-poppins)] text-[22px] font-extrabold tracking-tight text-navy-900 sm:text-[26px]">
+                <h2 className="font-[family-name:var(--font-poppins)] text-[22px] font-extrabold tracking-tight text-navy-900 sm:text-[26px] dark:text-white">
                   {s.title}
                 </h2>
                 {s.paragraphs?.map((p) => (
@@ -71,7 +71,7 @@ export function LegalShell({
                 )}
                 {s.subsections?.map((sub) => (
                   <div key={sub.title} className="mt-6">
-                    <h3 className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900">
+                    <h3 className="font-[family-name:var(--font-poppins)] text-[17px] font-bold text-navy-900 dark:text-white">
                       {sub.title}
                     </h3>
                     {sub.paragraphs?.map((p) => (
@@ -98,17 +98,17 @@ export function LegalShell({
           <div className="mt-14 rounded-3xl border border-velo-100 bg-velo-50/60 p-7 dark:border-velo-500/20 dark:bg-velo-500/10">
             <p className="text-[14.5px] leading-relaxed text-slate-600">
               Questions about this policy? Contact our team at{" "}
-              <a href="mailto:info@velofinance.co" className="font-semibold text-velo-600">
+              <a href="mailto:info@velofinance.co" className="font-semibold text-velo-600 dark:text-velo-400">
                 info@velofinance.co
               </a>{" "}
               or call{" "}
-              <a href="tel:+2347007003300" className="font-semibold text-velo-600">
+              <a href="tel:+2347007003300" className="font-semibold text-velo-600 dark:text-velo-400">
                 +234 700 700 3300
               </a>
               . See also our{" "}
-              <Link href="/legal/terms" className="font-semibold text-velo-600">Terms of Service</Link>{" "}
+              <Link href="/legal/terms" className="font-semibold text-velo-600 dark:text-velo-400">Terms of Service</Link>{" "}
               and{" "}
-              <Link href="/legal/cookies" className="font-semibold text-velo-600">Cookie Policy</Link>.
+              <Link href="/legal/cookies" className="font-semibold text-velo-600 dark:text-velo-400">Cookie Policy</Link>.
             </p>
           </div>
         </div>

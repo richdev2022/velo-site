@@ -139,11 +139,11 @@ export function Security() {
           <Stagger className="grid content-start gap-4 sm:grid-cols-2" gap={0.1}>
             {FEATURES.map((f) => (
               <StaggerItem key={f.title}>
-                <div className="group h-full rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-card-lift">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-all group-hover:bg-velo-500 group-hover:text-white">
+                <div className="group h-full rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-velo-200 hover:shadow-card-lift dark:hover:border-velo-400/40 dark:bg-white/5">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-velo-50 text-velo-600 transition-all group-hover:bg-velo-500 group-hover:text-white dark:text-velo-400 dark:bg-velo-500/15">
                     <f.icon className="h-5 w-5" />
                   </span>
-                  <h3 className="font-display mt-4 text-[15.5px] font-bold text-velo-900">
+                  <h3 className="font-display mt-4 text-[15.5px] font-bold text-velo-900 dark:text-white">
                     {f.title}
                   </h3>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-500">{f.body}</p>
