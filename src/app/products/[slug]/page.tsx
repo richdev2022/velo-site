@@ -30,7 +30,7 @@ export async function generateMetadata({
   if (!product)
     return { title: "Product not found", robots: { index: false } };
 
-  const image = product.image ?? "/brand/og-image.jpg";
+  const image = product.image ?? "/brand/og-image.jpg?v=2";
 
   return {
     title: product.name,
@@ -81,7 +81,7 @@ export default async function ProductDetailPage({
     serviceType: CATEGORY_META[product.category].label,
     description: product.description,
     url: `${SITE.website}/products/${product.slug}`,
-    image: `${SITE.website}${product.image ?? "/brand/og-image.jpg"}`,
+    image: `${SITE.website}${product.image ?? "/brand/og-image.jpg?v=2"}`,
     provider: { "@id": `${SITE.website}/#organization` },
     areaServed: "Worldwide",
     brand: { "@type": "Brand", name: "Velo Finance" },

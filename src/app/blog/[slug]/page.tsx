@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!post) return { title: "Article not found", robots: { index: false } };
 
   const url = `${SITE.website}/blog/${post.slug}`;
-  const image = post.image ?? "/brand/og-image.jpg";
+  const image = post.image ?? "/brand/og-image.jpg?v=2";
   const publishedTime = new Date(post.date).toISOString();
 
   return {
@@ -64,7 +64,7 @@ export default async function BlogPostPage({
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: `${SITE.website}${post.image ?? "/brand/og-image.jpg"}`,
+    image: `${SITE.website}${post.image ?? "/brand/og-image.jpg?v=2"}`,
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
     author: { "@type": "Organization", name: post.author, url: SITE.website },

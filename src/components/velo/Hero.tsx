@@ -5,11 +5,15 @@ import type { MouseEvent } from "react";
 import { ArrowRight, ArrowDownToLine, PlayCircle, ShieldCheck, Star, TrendingUp, Zap } from "lucide-react";
 import { Magnetic } from "./primitives";
 
+/* pos values are collision-checked against the toast (top-left), balance card (bottom-left),
+   and quote pill (right, xl+) at every stage size: md 600×338, lg 459×258, xl 576×324.
+   Overhangs stay ≤ 24px and right-side chips sit fully inside the card, so no text is ever
+   clipped at the viewport edge; cursor parallax is ±8px. */
 const FLOATERS = [
-  { flag: "🇺🇸", label: "USD Account", detail: "Routing •••• 2182", pos: "-left-4 top-[30%] lg:-left-10", delay: "0s" },
-  { flag: "🇪🇺", label: "EUR IBAN", detail: "SEPA · +€2,400 in", pos: "-right-3 top-[6%] lg:-right-8", delay: "1.3s" },
-  { flag: "🇬🇧", label: "GBP FPS", detail: "Sort code 04-00-72", pos: "-left-3 bottom-[14%] lg:-left-8", delay: "0.7s" },
-  { flag: "🇧🇷", label: "PIX received", detail: "+R$ 5,780 · 2s", pos: "-right-2 top-[44%] lg:-right-6", delay: "1.9s" },
+  { flag: "🇺🇸", label: "USD Account", detail: "Routing •••• 2182", pos: "-left-4 top-[31%] lg:-left-6", show: "hidden md:block", delay: "0s" },
+  { flag: "🇪🇺", label: "EUR IBAN", detail: "SEPA · +€2,400 in", pos: "right-3 top-[6%]", show: "hidden md:block", delay: "1.3s" },
+  { flag: "🇬🇧", label: "GBP FPS", detail: "Sort code 04-00-72", pos: "-left-3 bottom-[38%] xl:-left-6", show: "hidden xl:block", delay: "0.7s" },
+  { flag: "🇧🇷", label: "PIX received", detail: "+R$ 5,780 · 2s", pos: "right-3 top-[25%]", show: "hidden md:block", delay: "1.9s" },
 ];
 
 const fadeUp = {
@@ -29,8 +33,8 @@ export function Hero({ video = false }: { video?: boolean }) {
   const smy = useSpring(my, { stiffness: 55, damping: 16, mass: 0.7 });
   const rotateY = useTransform(smx, [-0.5, 0.5], [-6, 6]);
   const rotateX = useTransform(smy, [-0.5, 0.5], [4.5, -4.5]);
-  const chipX = useTransform(smx, [-0.5, 0.5], [16, -16]);
-  const chipY = useTransform(smy, [-0.5, 0.5], [10, -10]);
+  const chipX = useTransform(smx, [-0.5, 0.5], [8, -8]);
+  const chipY = useTransform(smy, [-0.5, 0.5], [6, -6]);
   const orbX = useTransform(smx, [-0.5, 0.5], [34, -34]);
   const orbY = useTransform(smy, [-0.5, 0.5], [22, -22]);
 
@@ -67,7 +71,7 @@ export function Hero({ video = false }: { video?: boolean }) {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:pb-24 lg:pt-20">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-8 lg:pb-24 lg:pt-20">
         {/* ---------------- copy ---------------- */}
         <div className="text-center lg:text-left">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
@@ -172,7 +176,7 @@ export function Hero({ video = false }: { video?: boolean }) {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className={`absolute z-20 hidden md:block ${f.pos}`}
+              className={`absolute z-20 ${f.show} ${f.pos}`}
             >
               <motion.div style={{ x: chipX, y: chipY }}>
                 <div
@@ -201,13 +205,13 @@ export function Hero({ video = false }: { video?: boolean }) {
                     muted
                     loop
                     playsInline
-                    className="aspect-[4/3] h-auto w-full object-cover sm:aspect-[16/11]"
+                    className="aspect-video h-auto w-full object-cover"
                   />
                 ) : (
                   <img
                     src="/media/hero-main.png"
                     alt="Global professional managing international payments with Velo Finance"
-                    className="aspect-[4/3] h-auto w-full object-cover sm:aspect-[16/11]"
+                    className="aspect-video h-auto w-full object-cover"
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/88 via-navy-950/8 to-transparent" />
@@ -268,7 +272,7 @@ export function Hero({ video = false }: { video?: boolean }) {
                   initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.6, duration: 0.6 }}
-                  className="absolute right-4 bottom-[86px] hidden max-w-[220px] rounded-2xl border border-white/12 bg-navy-950/70 p-3.5 backdrop-blur-md md:block"
+                  className="absolute right-4 bottom-[86px] hidden max-w-[220px] rounded-2xl border border-white/12 bg-navy-950/70 p-3.5 backdrop-blur-md xl:block"
                 >
                   <p className="text-[11.5px] font-medium leading-relaxed text-white/85">
                     “I got paid from the US in seconds — to my own USD account.”

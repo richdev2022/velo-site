@@ -23,7 +23,7 @@ const SITE_NAME = "Velo Finance";
 const DEFAULT_TITLE = `Velo — ${SITE.tagline}`;
 const DEFAULT_DESCRIPTION =
   "Velo Finance is modern digital banking for a borderless world. Open free USD, EUR, GBP, MXN, BRL and COP virtual accounts in your name, hold multi-currency wallets, convert at mid-market rates, pay out to 80+ countries and trade gift cards — with transparent fees and bank-grade security.";
-const OG_IMAGE = { url: "/brand/og-image.jpg", width: 1200, height: 630 };
+const OG_IMAGE = { url: "/brand/og-image.jpg?v=2", width: 1200, height: 630, type: "image/jpeg" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [OG_IMAGE.url],
+    images: [{ url: OG_IMAGE.url, width: 1200, height: 630, alt: "Velo — Banking Built for a Borderless Future" }],
   },
   robots: {
     index: true,

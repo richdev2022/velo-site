@@ -73,7 +73,7 @@ export const POSTS: BlogPost[] = [
     readTime: "6 min read",
     author: "Velo Editorial Team",
     featured: true,
-    image: "/site/local-payment.jpg",
+    image: "/site/bill-split.jpg",
     body: [
       { type: "p", text: "Saving money in a tough economy can feel like bailing water from a leaking boat — but the right system makes the difference between sinking and swimming. Here are five strategies that work in African realities: irregular income, family obligations, and inflation that punishes idle cash." },
       { type: "h2", text: "1. Automate before you feel it" },
