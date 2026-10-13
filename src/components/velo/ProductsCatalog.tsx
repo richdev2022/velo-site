@@ -50,7 +50,7 @@ export function ProductsCatalog() {
         eyebrow="Products & Services"
         title="Everything your money"
         highlight="will ever need."
-        description="Comprehensive financial solutions for every stage of your journey — 26 products across individuals, businesses, diaspora, global finance and referrals. Every product has its own detail page."
+        description="Comprehensive financial solutions for every stage of your journey — 20 products across individuals, businesses, diaspora, global finance and referrals. Every product has its own detail page."
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <div className="relative w-full max-w-md">
@@ -64,7 +64,7 @@ export function ProductsCatalog() {
             />
           </div>
           <div className="flex flex-wrap gap-2 text-[12.5px] text-white/50">
-            {["Instant transfers", "6 currency accounts", "Gift cards", "Business loans"].map((t) => (
+            {["Instant transfers", "6 currency accounts", "Gift cards", "Business accounts"].map((t) => (
               <span key={t} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-2">
                 <Check className="h-3.5 w-3.5 text-mint-400" /> {t}
               </span>
@@ -120,7 +120,7 @@ export function ProductsCatalog() {
               </h2>
               <p className="mt-2.5 text-[15px] leading-relaxed text-slate-500">
                 {tab === "all"
-                  ? "Twenty-six products, one platform. Filter by category or search to find exactly what you need."
+                  ? "Twenty products, one platform. Filter by category or search to find exactly what you need."
                   : CATEGORY_META[tab].blurb}
               </p>
             </motion.div>

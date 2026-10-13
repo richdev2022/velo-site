@@ -38,7 +38,7 @@ const VALUES = [
   {
     icon: Layers,
     title: "All-In-One Platform",
-    text: "A full operating system for individuals, families, and small businesses — 26 products and counting.",
+    text: "A full operating system for individuals, families, and small businesses — 20 products and counting.",
   },
 ];
 

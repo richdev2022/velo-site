@@ -249,7 +249,7 @@ export function Navbar() {
                               href="/products"
                               className="group inline-flex items-center gap-1.5 text-[13px] font-bold text-velo-600 transition-colors hover:text-velo-500 dark:text-velo-300 dark:hover:text-velo-200"
                             >
-                              View all 26 products &amp; services
+                              View all 20 products &amp; services
                               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                             </Link>
                           </div>

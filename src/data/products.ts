@@ -46,13 +46,13 @@ export const CATEGORY_META: Record<
     label: "For Businesses",
     short: "Businesses",
     blurb:
-      "Complete banking for SMEs — multi-currency accounts, invoicing, analytics and access to working capital.",
+      "Complete banking for SMEs — multi-currency accounts, analytics and payment tools.",
   },
   diaspora: {
     label: "For the Diaspora",
     short: "Diaspora",
     blurb:
-      "Stay financially connected to home — send, invest and support family from anywhere in the world.",
+      "Stay financially connected to home — send and support family from anywhere in the world.",
   },
   referrals: {
     label: "Referrals & Rewards",
@@ -654,49 +654,6 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "invoice-management",
-    name: "Invoice Management",
-    category: "businesses",
-    icon: "FileText",
-    tagline: "Create, send and track invoices with integrated payments",
-    description:
-      "Professional templates, automated reminders, multiple payment options for customers and real-time tracking — with payments landing in your account.",
-    overview:
-      "An invoice is a promise; Velo makes sure it gets kept. Build branded, professional invoices in seconds, send them by link or email, and let customers pay however they prefer — bank transfer, card, or international payment. Automated reminders chase late payers politely on your schedule, and the status board shows sent, viewed, partially-paid and settled in real time. Paid amounts land directly in your Velo business account, already reconciled.",
-    highlights: [
-      "Professional invoice templates",
-      "Automated payment reminders",
-      "Customers pay by transfer, card or internationally",
-      "Real-time payment tracking",
-      "Auto-reconciled with your accounting",
-    ],
-    features: [
-      {
-        title: "Beautiful invoices in seconds",
-        description:
-          "Pick a template, add your logo and line items, and send — by email or a shareable payment link.",
-      },
-      {
-        title: "Payments built in",
-        description:
-          "Customers click and pay — local transfer, card, or cross-border — with every method reconciled automatically.",
-      },
-      {
-        title: "Polite, persistent reminders",
-        description:
-          "Schedule reminder cadences and let Velo nudge late payers while you stay the good guy.",
-      },
-      {
-        title: "Cash-flow clarity",
-        description:
-          "See exactly which invoices are outstanding, overdue and paid — with aging buckets and collection stats.",
-      },
-    ],
-    faqs: [
-      { q: "Can customers pay from abroad?", a: "Yes — share international payment options on any invoice and receive via your multi-currency accounts." },
-    ],
-  },
-  {
     slug: "business-analytics",
     name: "Business Analytics",
     category: "businesses",
@@ -737,50 +694,6 @@ export const PRODUCTS: Product[] = [
     ],
     faqs: [
       { q: "Do I need to connect accounting software?", a: "No — analytics work out of the box. Integrations are available if you keep books elsewhere." },
-    ],
-  },
-  {
-    slug: "business-loans",
-    name: "Business Loans",
-    category: "businesses",
-    icon: "Landmark",
-    tagline: "Working capital and growth financing, minus the wahala",
-    description:
-      "Quick approvals based on your transaction history, flexible repayment, competitive rates and no collateral for qualifying businesses.",
-    overview:
-      "Access to capital shouldn't depend on who you know. Velo business loans use your real transaction history — sales, inflows, consistency — to underwrite working capital quickly and fairly. Qualifying businesses get unsecured offers with transparent rates and flexible repayment aligned to their cash flow, and decisions come back fast because the data is already there. Borrow what the business can service, grow, and build a credit history that unlocks bigger facilities.",
-    highlights: [
-      "Approvals based on transaction history",
-      "Flexible repayment terms",
-      "Competitive interest rates",
-      "No collateral for qualifying businesses",
-      "Dedicated business support",
-    ],
-    features: [
-      {
-        title: "Your data works for you",
-        description:
-          "Years of transaction history mean approvals in principle can arrive in hours — with offers sized to real cash flow.",
-      },
-      {
-        title: "Repayment that matches reality",
-        description:
-          "Choose schedules aligned to your sales cycles, with early repayment options and zero prepayment penalties.",
-      },
-      {
-        title: "Transparent pricing",
-        description:
-          "Interest and fees are stated flatly up front — total cost of borrowing visible before you accept anything.",
-      },
-      {
-        title: "Credit history that compounds",
-        description:
-          "Every well-served facility strengthens your Velo credit profile and unlocks larger limits over time.",
-      },
-    ],
-    faqs: [
-      { q: "Do I need collateral?", a: "Not for qualifying businesses — underwriting is based on your Velo transaction history and business health." },
-      { q: "How fast is approval?", a: "Most decisions arrive within 24–48 hours because your financial data is already on-platform." },
     ],
   },
 
@@ -827,136 +740,6 @@ export const PRODUCTS: Product[] = [
     faqs: [
       { q: "Can I open this account from abroad?", a: "Yes — the diaspora account is designed for remote onboarding with international ID documents." },
       { q: "Which countries can I send to from Nigeria?", a: "Ghana, the UK, the US, South Africa and many more — see live corridors and rates in the app." },
-    ],
-  },
-  {
-    slug: "family-first",
-    name: "Family First, Always",
-    category: "diaspora",
-    icon: "Heart",
-    tagline: "Support loved ones back home with peace of mind",
-    description:
-      "Recurring allowances, real-time family spending updates, education funding and healthcare payments — handled from anywhere in the world.",
-    overview:
-      "For most of us abroad, success is measured at home. Family First turns that support into dependable systems: automatic monthly allowances that arrive like clockwork, visibility into how funds are used when you choose to share it, education savings that guarantee school fees are never late, and fast, dignified handling of medical payments. Distance stops being a barrier the day your money stops being unreliable.",
-    highlights: [
-      "Automatic recurring allowances",
-      "Real-time family spending updates",
-      "Education funding with guarantees",
-      "Healthcare payments from abroad",
-      "Complete transparency, no surprises",
-    ],
-    features: [
-      {
-        title: "Allowances that never miss",
-        description:
-          "Schedule monthly support that lands on the same date every month — automatically, with receipts for both of you.",
-      },
-      {
-        title: "Education without anxiety",
-        description:
-          "Dedicated school-fees savings and direct-to-school payments mean tuition is ready when term begins.",
-      },
-      {
-        title: "Medical emergencies handled",
-        description:
-          "Pay hospitals and pharmacies directly from abroad in minutes — with documentation stored in-app.",
-      },
-      {
-        title: "Shared visibility, by choice",
-        description:
-          "Opt in to shared spending views with family members, building trust through transparency rather than interrogation.",
-      },
-    ],
-    faqs: [
-      { q: "Can I automate support for multiple family members?", a: "Yes — set up separate recurring transfers per person, each with its own schedule and amount." },
-    ],
-  },
-  {
-    slug: "property-investment",
-    name: "Property Investment",
-    category: "diaspora",
-    icon: "Home",
-    tagline: "Invest in real estate back home from anywhere",
-    description:
-      "A direct property investment platform with escrow protection, vetted management partners, rental income collection and legal support.",
-    overview:
-      "Owning back home shouldn't require a leap of faith. Velo's property investment platform connects vetted developments and sellers with structured escrow protection: your money is held until verified milestones are met, property management partners handle tenants and maintenance, and rental income lands in your Velo wallet wherever you are. Legal and regulatory support is built into every step, because the story of 'my cousin sold the land' ends here.",
-    highlights: [
-      "Direct property investment platform",
-      "Escrow services for secure transactions",
-      "Vetted property management partners",
-      "Rental income collected for you",
-      "Legal and regulatory support",
-    ],
-    features: [
-      {
-        title: "Escrow by default",
-        description:
-          "Funds only release against verified milestones — documentation, title checks, construction progress — never on a promise.",
-      },
-      {
-        title: "Vetted partners only",
-        description:
-          "Developers, agents and managers go through due diligence before they ever appear on the platform.",
-      },
-      {
-        title: "Rental income, automated",
-        description:
-          "Management partners handle tenants while rent lands in your wallet monthly, with statements you can verify.",
-      },
-      {
-        title: "Legal clarity",
-        description:
-          "Title verification, contract review and regulatory filings are coordinated as part of the transaction, not extras.",
-      },
-    ],
-    faqs: [
-      { q: "Can I really invest from abroad?", a: "Yes — the entire flow from selection to escrow to management is designed for remote investors." },
-      { q: "How is my money protected?", a: "Escrow holds funds until verified milestones are met, and all counterparties pass KYC and due-diligence checks." },
-    ],
-  },
-  {
-    slug: "safety-net",
-    name: "Your Safety Net, Anytime",
-    category: "diaspora",
-    icon: "ShieldCheck",
-    tagline: "Be there in emergencies, even from thousands of miles away",
-    description:
-      "Emergency funds in minutes, fast medical payments, travel emergency support, document replacement help and a 24/7 dedicated line.",
-    overview:
-      "Emergencies don't respect time zones. The Velo safety net is the promise that when the call comes — a hospital, an accident, a lost passport — you can act in minutes from wherever you are. Emergency transfers clear fast on priority rails, medical payments go straight to providers, travel emergencies get hands-on coordination, and a dedicated 24/7 line connects you to a human who can actually do something, immediately.",
-    highlights: [
-      "Emergency funds delivered in minutes",
-      "Fast medical payments to providers",
-      "Travel emergency assistance",
-      "Document replacement support",
-      "24/7 dedicated emergency line",
-    ],
-    features: [
-      {
-        title: "Priority emergency rails",
-        description:
-          "Flagged emergency transfers jump the queue with priority processing and live human monitoring until delivery.",
-      },
-      {
-        title: "Pay providers directly",
-        description:
-          "Hospitals, pharmacies and labs get paid directly — so the money becomes treatment, not a detour through someone's account.",
-      },
-      {
-        title: "Travel emergencies coordinated",
-        description:
-          "Lost documents, stranded family, urgent tickets — a specialist coordinates the logistics while you fund it.",
-      },
-      {
-        title: "A human, always",
-        description:
-          "The 24/7 emergency line reaches a real person who can move money, escalate and follow through to resolution.",
-      },
-    ],
-    faqs: [
-      { q: "How fast is an emergency transfer?", a: "Emergency-flagged transfers are prioritised — most deliver within minutes on supported corridors." },
     ],
   },
 
@@ -1051,41 +834,6 @@ export const PRODUCTS: Product[] = [
     ],
     faqs: [
       { q: "How do I know when campaigns run?", a: "Campaigns are announced in the app, via push notifications and on our social channels." },
-    ],
-  },
-  {
-    slug: "community-impact",
-    name: "Community Impact",
-    category: "referrals",
-    icon: "Globe2",
-    tagline: "Growing a stronger financial community together",
-    description:
-      "Help friends access better banking, contribute to financial inclusion and be part of the movement changing how Africa banks.",
-    overview:
-      "Every referral is bigger than ₦500 — it's someone leaving a queue, dodging a hidden fee, or starting a savings habit that changes their year. Velo's community is a network of people pulling each other toward better money: friends you onboard get better banking, their families get faster support, and financial inclusion spreads one invite at a time. That's the movement: modern banking, owned by the people who use it.",
-    highlights: [
-      "Bring better banking to your people",
-      "Contribute to financial inclusion",
-      "Create lasting positive impact",
-      "Be part of the banking revolution",
-      "A community that grows together",
-    ],
-    features: [
-      {
-        title: "One invite, compounding good",
-        description:
-          "A friend who joins saves on fees, saves better, and tells two more people — that's how banking changes.",
-      },
-      {
-        title: "Inclusion by design",
-        description:
-          "Simple onboarding and no maintenance fees mean the people banking apps usually skip get full access.",
-      },
-      {
-        title: "Community voice",
-        description:
-          "Referrers are power users — their feedback gets a direct channel into the product roadmap.",
-      },
     ],
   },
 
