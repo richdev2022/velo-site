@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/data/site";
 import { PRODUCTS } from "@/data/products";
 import { POSTS } from "@/data/blog";
+import { getSiteUrl } from "@/lib/site-url";
 
-const BASE = SITE.website; // https://velofinance.co
+// Rendered per request so every URL always points at the serving domain.
+export const dynamic = "force-dynamic";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const BASE = await getSiteUrl();
   const lastModified = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

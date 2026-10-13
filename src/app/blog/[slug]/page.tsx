@@ -7,7 +7,7 @@ import { POSTS, getPost } from "@/data/blog";
 import { Reveal } from "@/components/velo/primitives";
 import { CtaBand } from "@/components/velo/page-parts";
 import { JsonLd } from "@/components/velo/JsonLd";
-import { SITE } from "@/data/site";
+import { getSiteUrl } from "@/lib/site-url";
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -22,7 +22,8 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return { title: "Article not found", robots: { index: false } };
 
-  const url = `${SITE.website}/blog/${post.slug}`;
+  const siteUrl = await getSiteUrl();
+  const url = `${siteUrl}/blog/${post.slug}`;
   const image = post.image ?? "/brand/og-image.jpg?v=2";
   const publishedTime = new Date(post.date).toISOString();
 
@@ -59,21 +60,22 @@ export default async function BlogPostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
+  const siteUrl = await getSiteUrl();
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: `${SITE.website}${post.image ?? "/brand/og-image.jpg?v=2"}`,
+    image: `${siteUrl}${post.image ?? "/brand/og-image.jpg?v=2"}`,
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
-    author: { "@type": "Organization", name: post.author, url: SITE.website },
+    author: { "@type": "Organization", name: post.author, url: siteUrl },
     publisher: {
       "@type": "Organization",
       name: "Velo Finance",
-      logo: { "@type": "ImageObject", url: `${SITE.website}/brand/velo-logo.png` },
+      logo: { "@type": "ImageObject", url: `${siteUrl}/brand/velo-logo.png` },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE.website}/blog/${post.slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteUrl}/blog/${post.slug}` },
     articleSection: post.category,
     inLanguage: "en",
   };

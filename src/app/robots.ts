@@ -1,7 +1,11 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/data/site";
+import { getSiteUrl } from "@/lib/site-url";
 
-export default function robots(): MetadataRoute.Robots {
+// Rendered per request so the sitemap link always points at the serving domain.
+export const dynamic = "force-dynamic";
+
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const base = await getSiteUrl();
   return {
     rules: [
       {
@@ -9,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: `${SITE.website}/sitemap.xml`,
-    host: SITE.website,
+    sitemap: `${base}/sitemap.xml`,
+    host: base,
   };
 }

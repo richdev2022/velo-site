@@ -14,7 +14,7 @@ import { ProductIcon } from "@/components/velo/ProductIcon";
 import { Reveal } from "@/components/velo/primitives";
 import { CtaBand, Section } from "@/components/velo/page-parts";
 import { JsonLd } from "@/components/velo/JsonLd";
-import { SITE } from "@/data/site";
+import { getSiteUrl } from "@/lib/site-url";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -31,6 +31,7 @@ export async function generateMetadata({
     return { title: "Product not found", robots: { index: false } };
 
   const image = product.image ?? "/brand/og-image.jpg?v=2";
+  const siteUrl = await getSiteUrl();
 
   return {
     title: product.name,
@@ -40,7 +41,7 @@ export async function generateMetadata({
       type: "website",
       title: `${product.name} | Velo Finance`,
       description: product.description,
-      url: `${SITE.website}/products/${product.slug}`,
+      url: `${siteUrl}/products/${product.slug}`,
       siteName: "Velo Finance",
       images: [{ url: image, alt: product.imageAlt ?? product.name }],
     },
@@ -73,6 +74,7 @@ export default async function ProductDetailPage({
         ).slice(0, 3 - related.length)
       : [];
   const relatedAll = [...related, ...relatedFill];
+  const siteUrl = await getSiteUrl();
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -80,9 +82,9 @@ export default async function ProductDetailPage({
     name: product.name,
     serviceType: CATEGORY_META[product.category].label,
     description: product.description,
-    url: `${SITE.website}/products/${product.slug}`,
-    image: `${SITE.website}${product.image ?? "/brand/og-image.jpg?v=2"}`,
-    provider: { "@id": `${SITE.website}/#organization` },
+    url: `${siteUrl}/products/${product.slug}`,
+    image: `${siteUrl}${product.image ?? "/brand/og-image.jpg?v=2"}`,
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: "Worldwide",
     brand: { "@type": "Brand", name: "Velo Finance" },
   };
@@ -91,9 +93,9 @@ export default async function ProductDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.website}/` },
-      { "@type": "ListItem", position: 2, name: "Products & Services", item: `${SITE.website}/products` },
-      { "@type": "ListItem", position: 3, name: product.name, item: `${SITE.website}/products/${product.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Products & Services", item: `${siteUrl}/products` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `${siteUrl}/products/${product.slug}` },
     ],
   };
 

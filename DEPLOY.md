@@ -18,6 +18,17 @@ bun run start        # NODE_ENV=production bun .next/standalone/server.js
 - Listens on port 3000 by default (set `PORT=80` or use a reverse proxy to change).
 - No environment variables are required.
 
+## Domain changes (optional)
+
+The build is **domain-agnostic**: og:image, og:url, canonical, JSON-LD, sitemap.xml
+and robots.txt all derive from the request host at runtime — deploy the same build
+behind any domain and the SEO metadata follows automatically. To pin a specific
+domain regardless of the serving host, set:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com bun run start
+```
+
 ## 2. Verify the SEO image is live
 
 ```bash

@@ -6,6 +6,7 @@ import { Navbar } from "@/components/velo/Navbar";
 import { Footer } from "@/components/velo/Footer";
 import { JsonLd } from "@/components/velo/JsonLd";
 import { SITE } from "@/data/site";
+import { getSiteUrl } from "@/lib/site-url";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -19,15 +20,18 @@ const rubik = Rubik({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const SITE_URL = SITE.website; // https://velofinance.co
 const SITE_NAME = "Velo Finance";
 const DEFAULT_TITLE = `Velo — ${SITE.tagline}`;
 const DEFAULT_DESCRIPTION =
   "Velo Finance is modern digital banking for a borderless world. Open free USD, EUR, GBP, MXN, BRL and COP virtual accounts in your name, hold multi-currency wallets, convert at mid-market rates, pay out to 80+ countries and trade gift cards — with transparent fees and bank-grade security.";
 const OG_IMAGE = { url: "/brand/og-image.jpg?v=2", width: 1200, height: 630, type: "image/jpeg" };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+// metadataBase derives from the request host (or NEXT_PUBLIC_SITE_URL pin), so
+// og:image / canonical / og:url are correct on ANY domain this build serves.
+export async function generateMetadata(): Promise<Metadata> {
+  const siteUrl = await getSiteUrl();
+  return {
+  metadataBase: new URL(siteUrl),
   title: {
     default: DEFAULT_TITLE,
     template: "%s | Velo",
@@ -62,7 +66,7 @@ export const metadata: Metadata = {
     "velofinance.co",
   ],
   applicationName: SITE_NAME,
-  authors: [{ name: "Velo Finance LTD", url: SITE_URL }],
+  authors: [{ name: "Velo Finance LTD", url: siteUrl }],
   creator: "Velo Finance LTD",
   publisher: "Velo Finance LTD",
   category: "finance",
@@ -82,7 +86,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
+    url: siteUrl,
     siteName: SITE_NAME,
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
@@ -105,7 +109,8 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-};
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -117,53 +122,54 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const organizationLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${SITE_URL}/#organization`,
-  name: SITE_NAME,
-  legalName: SITE.legalName,
-  url: SITE_URL,
-  logo: `${SITE_URL}/brand/velo-logo.png`,
-  image: `${SITE_URL}/brand/og-image.jpg`,
-  description: SITE.description,
-  identifier: `RC ${SITE.rcNumber}`,
-  email: SITE.email,
-  telephone: SITE.phone,
-  address: SITE.addresses.map((a) => ({
-    "@type": "PostalAddress",
-    streetAddress: a.lines[0],
-    addressLocality: a.city,
-    addressCountry: a.city === "Austin" ? "US" : "NG",
-  })),
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: SITE.phone,
-      email: SITE.email,
-      contactType: "customer support",
-      availableLanguage: ["en"],
-    },
-  ],
-};
-
-const websiteLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${SITE_URL}/#website`,
-  name: SITE_NAME,
-  alternateName: "Velo",
-  url: SITE_URL,
-  description: SITE.description,
-  publisher: { "@id": `${SITE_URL}/#organization` },
-  inLanguage: "en",
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl = await getSiteUrl();
+
+  const organizationLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: SITE_NAME,
+    legalName: SITE.legalName,
+    url: siteUrl,
+    logo: `${siteUrl}/brand/velo-logo.png`,
+    image: `${siteUrl}/brand/og-image.jpg`,
+    description: SITE.description,
+    identifier: `RC ${SITE.rcNumber}`,
+    email: SITE.email,
+    telephone: SITE.phone,
+    address: SITE.addresses.map((a) => ({
+      "@type": "PostalAddress",
+      streetAddress: a.lines[0],
+      addressLocality: a.city,
+      addressCountry: a.city === "Austin" ? "US" : "NG",
+    })),
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: SITE.phone,
+        email: SITE.email,
+        contactType: "customer support",
+        availableLanguage: ["en"],
+      },
+    ],
+  };
+
+  const websiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: SITE_NAME,
+    alternateName: "Velo",
+    url: siteUrl,
+    description: SITE.description,
+    publisher: { "@id": `${siteUrl}/#organization` },
+    inLanguage: "en",
+  };
   return (
     <html lang="en" suppressHydrationWarning>
       <body
